@@ -1,0 +1,118 @@
+/* CSS Document */
+/*----------------------------------CSS with any web----------------------------------------------*/
+body {
+	margin:0px;
+	padding: 0px;
+	display:block;
+	font: 80%/150% arial;
+}
+a:link{font-family:Arial; color:#111; text-decoration:none}
+a:hover{font-family:Arial; color:#111; text-decoration:underline}
+a:visited{font-family:Arial; color:#111; text-decoration:none}
+
+/*----------------------------------CSS with Slide---------------------------------------------*/
+.slider-wrapper2{
+				width:990px;
+				height:236px;
+				margin-left:0px;
+				margin-top:0px;
+				}
+				.slider-wrapper2 img{
+									width:945px;
+									height:250px;
+				 					}
+				.slider-wrapper2 .nivo-controlNav{
+									left:500px !important;
+									}			
+/*--------------------------------BODY------------------------------------------*/
+#maincontain{ height: auto; 
+			width:990px; 
+			margin:auto;
+			background:#FFFFFF;
+			border-radius: 6px 6px 6px 6px;
+			margin-top:1px
+			}
+#banner_head{
+		height:150px; 
+		width:990px; 
+		position: relative;
+		border-radius: 6px 6px 0px 0px
+		}
+		#banner_head .vitrilogo{height:75px; width:110px; position:absolute; left: 30px; top: 25px}
+					 .vitrilogo .imglogo{max-height:75px; max-width:110px; border-radius: 8px 8px 8px 8px}	
+		#banner_head .vitritencty{height:35px; width:600px; position:absolute; left: 150px; top: 25px;padding-top:0px}
+					.vitritencty .txttencty {color:#0099FF;  margin-top:6px; font-size:23px; font-weight: 700}	
+    	#banner_head .vitri_textshot{height:30px; width:600px; position:absolute; left: 150px; top:65px;padding-top:0px;}
+					.vitri_textshot .txttextshot {color: #FFF; margin-top:0px; font-size:20px; font-weight:100}
+		#banner_head .newlogo{float:left; margin-left:30px; width:115px; height:140px; text-align:center}
+		#banner_head .newlogo_img{margin-top:24px; max-width:115px; max-height:85px; border-radius: 8px 8px 8px 8px}
+		#banner_head .newsection_text{float:left; margin-left:15px; width:680px; position: relative}
+		#banner_head .newsection_text1{width:680px; position: absolute}
+		#banner_head .newsection_text11{min-height:30px; margin-top:25px; font-weight:700; line-height:28px; text-align:left; color:#FF0000; font-size:22px;}
+		#banner_head .newsection_text12{min-height:26px; font-weight:700; padding-top:6px; line-height:20px; text-align:left; color:#333; font-size:18px;}
+		#banner_head .newsection_text13{min-height:26px; padding-top:3px; color:#333; font-size:15px}
+		#banner_head .newsection_text14{ min-height:23px; color:#333; font-size:15px;}
+		
+		
+					
+#menutop {height:30px; 
+		width:984px;
+		background: #666; 
+		padding-top:4px; 
+		padding-left:6px
+		}
+		#menutop .menutopletf {float:left; width:886px}
+		#menutop .menutopright {width:75px; float:right; font-weight:700; padding-top:4px;}	
+#contentsection{height: auto; width:990px; margin-top:23px}	
+/*-----Left section-----------*/
+#contentsectionleft{height: auto; width:200px; float:left; margin-left:1px}
+.searchproduct{height:35px; width:200px}
+	.searchproduct .input{float:left; height:33px; width:158px;border:#dddddd; border-style: solid; border-width:1px;}
+	.searchproduct .buttom{height:35px; width:39px; float:left}
+	.searchproduct .inputtext{border:0px solid #fff; font-family: Arial; font-size:9pt; color:#999; background:none; padding-left:5px; margin-left:4px; margin-top:5px; width:145px; height:20px;}
+ 	#contentsectionleft .texttilte{font-size:14px; margin-top:18px; padding-left:14px; padding-right:12px; line-height:20px; font-weight:700; color:#333333; text-transform:uppercase}
+	#contentsectionleft .linetilte{height:2px; margin-top:4px; margin-bottom:8px; background-color:#999}
+	#contentsectionleft .divclass{height: auto; padding-top:6px; padding-bottom:6px; clear:both}
+						.divclass .divimg{float:left; width:10px}
+									.divimg .imgarrow{padding-top:8px; padding-left:6px}
+						.divclass .divtext{float:left; margin-left:6px; padding-top:2px; width:168px}
+	#contentsectionleft .lineclass {height:6px; border-bottom:#CCCCCC; border-bottom-style:solid; border-bottom-width:1px;}	
+	#contentsectionleft .contact{height: auto; margin-top:20px; border-bottom-color:#CCCCCC; border-bottom-style: solid; border-bottom-width:1px;}
+						.contact .contact_img{width: 89px; height: 89px; border-radius: 50%; margin-left:57px; border:#DDD; border-style: solid; border-width:1px;}
+						.contact .contact_name{height:20px; margin-top:11px; color:#2194d2; text-align:center; text-transform:uppercase}
+						.contact .contact_chucvu{ min-height:24px; margin-top:3px; color:#555; text-align:center; clear:both}
+						.contact .contact_ym{height:33px; width:138px; margin:auto; text-align:center}
+									.contact_ym .skype{width:60px; float: left}
+									.contact_ym .ym{width:68px; float: left; margin-left:3px; margin-top:4px;}
+/*-----Right content-----------*/		
+		
+#contentsection_right {float:left; height:auto; width:763px; margin-left:25px}
+	#contentsection_right .showtilte{height:26px; margin-top:3px; border-bottom: #999; border-bottom-style: solid; border-bottom-width:2px; margin-bottom:16px;}
+	#contentsection_right .txtshowtitle{float:left; margin-left:14px; padding-top:0px; width:500px;  font-weight:700; font-size:15px; color:#222; text-transform: uppercase}
+	#contentsection_right .show_sanpham {height: auto; margin-left:14px}
+						  .show_sanpham .divsanpham {float:left; background: #FFF; width:131px; height:168px; margin-right:18px; margin-top:16px; margin-bottom:16px;position: relative}	
+						  .show_sanpham .divimgsanpham {width:125px; height:120px; border:#CCCCCC; border-style:solid; border-width:1px; padding:2px; display: table-cell; vertical-align: middle; text-align: center}
+						  .show_sanpham .divtensanpham {width:125px; min-height:24px; margin-top:8px; margin-bottom:6px; padding-left:3px; padding-right:3px; text-align:center}
+						  .show_sanpham .new_sanpham{width:40px; height:16px; position:absolute; right: 5px; top:3px; z-index:1}	
+	
+
+#product_detail {height: auto; margin-left:10px; margin-top:3px}
+		#product_detail .box_images{height:248px; margin-top:4px; padding-left:8px; padding-right:8px; width:285px; border:#DDD; border-style:solid; border-width:1px; float:left; text-align:center !important}
+		#product_detail .section_images{max-height:220px; margin-top:10px; max-width:265px}
+		#product_detail .section_products{min-height:250px; margin-top:1px; width:420px; float:left; margin-left:30px;}
+		#product_detail .txttensanpham{height:26px; font-size:18px; font-weight:700; padding-bottom:10px; color: #FF6600}
+		#product_detail .li_section_sanpham{min-height:24px; padding-bottom:6px; clear:both}
+						.li_section_sanpham .phan1{float:left; width:146px; color:#888}
+						.li_section_sanpham .phan2{float:left; width:268px; color:#333}
+		
+#footer {height: auto; border-top-color:#CCCCCC; border-top-style:solid; border-top-width:1px; margin-top:10px}
+		#footer .company_name {height:25px; margin-top:15px; font-size:16px; color: #006699; text-align: center; text-transform:uppercase}
+		#footer .diachi {height:22px; font-size:12px; color: #333; text-align: center}
+		#footer .dienthoai {height:22px; font-size:12px; color: #333; text-align: center}
+		#footer .designby{height:18px; font-size:10px; color: #666; text-align: center; padding-top:6px}
+				.designby a:link {font-weight:700; color:#555}
+
+		
+/*-----Share mang xa hoi-----------*/	
+.share {float:right; width:206px; padding-top:0px}
+.share .textshare{float:left; color:#999999; font-size:12px}	
