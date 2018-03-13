@@ -8,6 +8,6 @@ class Product extends Model
 {
     public function hasCategory()
     {
-        return $this->hasOne('App\Category');
+        return $this->hasOne('App\Sub_category');
     }
 }

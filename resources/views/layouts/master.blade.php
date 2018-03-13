@@ -86,51 +86,18 @@
                     <a style="text-transform:uppercase; color:#FFFF00" href="#">SẢN PHẨM</a>
                     <ul>
             <!-- tim nhom lon san pham -->
-            
+                    @foreach($categories as $category)
                         <li>
-                          <a style="text-transform:uppercase; color:#FFFF00" href="#">THIẾT BỊ AN NINH</a>
+                          <a style="text-transform:uppercase; color:#FFFF00" href="#">{{ $category -> name }}</a>
                           <ul>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2261/camera.html">Camera</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2262/thiết-bị-báo-động.html">Thiết bị báo động</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2263/thiết-bị-kiểm-soát-ra-vào.html">Thiết bị kiểm soát ra vào</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2264/hệ-thống-ghi-hình-kts.html">Hệ thống ghi hình KTS</a></li>
-              
+                              @foreach($category->hasSub as $sub_category)
+                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2261/camera.html">{{ $sub_category -> name }}</a></li>
+                               @endforeach
                             </ul>
-                      </li>   
-          
-                        <li>
-                          <a style="text-transform:uppercase; color:#FFFF00" href="#">THIẾT BỊ PCCC</a>
-                          <ul>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2265/bình-chữa-cháy.html">Bình chữa cháy</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2266/vòi-chữa-cháy.html">Vòi chữa cháy</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2267/báo-cháy.html">Báo cháy</a></li>
-              
-                            </ul>
-                      </li>   
-          
-                        <li>
-                          <a style="text-transform:uppercase; color:#FFFF00" href="#">THIẾT BỊ CHỐNG SÉT</a>
-                          <ul>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2268/kim-thu-sét.html">Kim thu sét</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2269/phụ-kiện-hệ-thống-chống-sét.html">Phụ kiện hệ thống chống sét</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2270/tủ-chống-sét.html">Tủ chống sét</a></li>
-              
-                             <li><a style="text-transform:uppercase; color:#FFFF00" href="http://alicohue.com/class/2271/thiết-bị-chống-sét-lan-truyền.html">Thiết bị chống sét lan truyền</a></li>
-              
-                            </ul>
-                      </li>   
-             
+                        </li> 
+                    @endforeach 
                     </ul>
+                    
                 </li>
                 <!-- End menu san pham -->
                 <li>
@@ -189,140 +156,26 @@
                  <INPUT id=sensisSubmit type=image src="{{ asset('images/search_button.png') }}">
                 </div>
              </div>
-            
-                <div class="texttilte" style="background:; color:; border-radius: 3px 3px 3px 3px; padding-top:5px; padding-bottom:5px">THIẾT BỊ AN NINH</div>
+                    @foreach($categories as $category)
+
+                <div class="texttilte" style="background:; color:; border-radius: 3px 3px 3px 3px; padding-top:5px; padding-bottom:5px">{{ $category->name }}</div>
            
                      <div class="linetilte"></div>
+                  @foreach($category->hasSub as $sub_category)
                      
                     <div class="divclass">
                         <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
                         <div  class="divtext">
                         
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2261/camera.html">Camera</a>
+                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2265/bình-chữa-cháy.html">{{ $sub_category->name }}</a>
                         
                         </div>
                     </div>
                     <p style="clear: both"></p>
                     <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2262/thiết-bị-báo-động.html">Thiết bị báo động</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2263/thiết-bị-kiểm-soát-ra-vào.html">Thiết bị kiểm soát ra vào</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2264/hệ-thống-ghi-hình-kts.html">Hệ thống ghi hình KTS</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                <div class="texttilte" style="background:; color:; border-radius: 3px 3px 3px 3px; padding-top:5px; padding-bottom:5px">THIẾT BỊ PCCC</div>
-           
-                     <div class="linetilte"></div>
-                     
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2265/bình-chữa-cháy.html">Bình chữa cháy</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2266/vòi-chữa-cháy.html">Vòi chữa cháy</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2267/báo-cháy.html">Báo cháy</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                <div class="texttilte" style="background:; color:; border-radius: 3px 3px 3px 3px; padding-top:5px; padding-bottom:5px">THIẾT BỊ CHỐNG SÉT</div>
-           
-                     <div class="linetilte"></div>
-                     
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2268/kim-thu-sét.html">Kim thu sét</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2269/phụ-kiện-hệ-thống-chống-sét.html">Phụ kiện hệ thống chống sét</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2270/tủ-chống-sét.html">Tủ chống sét</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
-                    <div class="divclass">
-                        <div class="divimg"><img class="imgarrow" src="http://alicohue.com/images/cate_arrow.png" /></div>
-                        <div  class="divtext">
-                        
-                           <a style="text-transform:capitalize" href="http://alicohue.com/class/2271/thiết-bị-chống-sét-lan-truyền.html">Thiết bị chống sét lan truyền</a>
-                        
-                        </div>
-                    </div>
-                    <p style="clear: both"></p>
-                    <div class="lineclass"></div>
-                    
+                  @endforeach
+                  @endforeach
+
             <p style="clear: both; height:1px"></p>
              <!-- PHAN CONTACT US -->
             <div class="texttilte">thông tin liên hệ</div>
