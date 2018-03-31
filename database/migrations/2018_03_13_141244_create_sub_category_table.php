@@ -15,9 +15,8 @@ class CreateSubCategoryTable extends Migration
     {
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name', 30);
-            $table->char('link', 40);
             $table->integer('category_id')->unsigned();
+            $table->char('name', 30);
             $table->foreign('category_id')->references('id')->on('categories');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');

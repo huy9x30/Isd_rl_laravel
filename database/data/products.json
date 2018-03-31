@@ -1,0 +1,543 @@
+[
+	{
+		"sub_category_id": "1",
+		"name": "PRC 334ZF",
+		"image": "images/camera/145ec.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PRC 406FH",
+		"image": "images/camera/406fh.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "Picotech PC-608IRMTV",
+		"image": "images/camera/608irmtv.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "Camera ngụy trang đầu báo khói",
+		"image": "images/camera/camera-bao-khoi.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PICOTECH PC 008SD",
+		"image": "images/camera/pc-008s.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PICOTECH PC 606 IR PL",
+		"image": "images/camera/pc-606ir.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PICOTECH PC 608IR MT 480",
+		"image": "images/camera/pc-608ir.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PC - 973BIG VF",
+		"image": "images/camera/PC-973.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PICOTECH PC 3030 IR /30X",
+		"image": "images/camera/pc3030irz.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PRC 334ZF",
+		"image": "images/camera/PRC_334.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "PRC 46ZE",
+		"image": "images/camera/PRC-46ZE.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "1",
+		"name": "VDT126 PTWV",
+		"image": "images/camera/vdt126.jpg",
+		"description": ""
+	},
+
+
+	{
+		"sub_category_id": "2",
+		"name": "Đầu dò hồng ngoại ATSUMI NR30DT",
+		"image": "images/thiet-bi-bao-dong/ATSUMI.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "2",
+		"name": "Đầu dò hồng ngoại ATSUMI NR40TX",
+		"image": "images/thiet-bi-bao-dong/ATSUMINR40.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "2",
+		"name": "Báo trộm hồng ngoại PIR-64",
+		"image": "images/thiet-bi-bao-dong/pir-64.jpg",
+		"description": ""
+	},
+
+
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công 5000A Pro",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/5000APro.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công kiểm soát cửa bằng vân tay",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/F8.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công kiểm soát cửa F-701",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/F-701.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công vân tay F-708",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/F-708.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công 5000A",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/L2000.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "3",
+		"name": "Máy chấm công kiểm soát cửa SC 403",
+		"image": "images/thiet-bi-kiem-soat-ra-vao/SC403.png",
+		"description": ""
+	},
+
+
+	{
+		"sub_category_id": "4",
+		"name": "PRC 3700NF",
+		"image": "images/he-thong-ghi-hinh-kts/3700NF.png",
+		"description": ""
+	},
+	{
+		"sub_category_id": "4",
+		"name": "PRC 3700 D1",
+		"image": "images/he-thong-ghi-hinh-kts/3700D1.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "4",
+		"name": "PRC 4600HG",
+		"image": "images/he-thong-ghi-hinh-kts/prc4600hg.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "4",
+		"name": "PRC 2800.D1",
+		"image": "images/he-thong-ghi-hinh-kts/prc_2800_d1.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "4",
+		"name": "PRC 9100HFN",
+		"image": "images/he-thong-ghi-hinh-kts/prc_9100hfn.jpg",
+		"description": ""
+	},
+
+	{
+		"sub_category_id": "5",
+		"name": "Bình CO2 xách tay ECO",
+		"image": "images/binh-chua-chay/ECO.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình PCCC Foam",
+		"image": "images/binh-chua-chay/Foam.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình bột MFZ8",
+		"image": "images/binh-chua-chay/MFZ8.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình bột MFZ35",
+		"image": "images/binh-chua-chay/MFZ35.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình CO2 xách tay MT5",
+		"image": "images/binh-chua-chay/MT5.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình CO2 MT24",
+		"image": "images/binh-chua-chay/MT24.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình chữa cháy tự động bằng bột không nén áp suất",
+		"image": "images/binh-chua-chay/nen_ap_xuat.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình chữa cầm tay PFE-1",
+		"image": "images/binh-chua-chay/pfe1.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình chữa cháy cầm tay PFE-3",
+		"image": "images/binh-chua-chay/PFE-3.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Binh cầu PCCC XZFTL",
+		"image": "images/binh-chua-chay/XZFTL.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "5",
+		"name": "Bình chữa cháy cầm tay PFE-2",
+		"image": "images/binh-chua-chay/PFE-2.jpg",
+		"description": ""
+	},
+
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D25 Trung Quốc",
+		"image": "images/binh-chua-chay/D25_trungquoc.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D50 - Đức",
+		"image": "images/binh-chua-chay/D50-duc.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D50 - Nhật",
+		"image": "images/binh-chua-chay/D50.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D50 - Hàn Quốc",
+		"image": "images/binh-chua-chay/D50hq.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D65 - Đức",
+		"image": "images/binh-chua-chay/D65duc.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D65 - Hàn Quốc",
+		"image": "images/binh-chua-chay/D65hq.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D65 - Nhật",
+		"image": "images/binh-chua-chay/D65.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D50 - Dày-Trung Quốc",
+		"image": "images/binh-chua-chay/DN50-trungquoc.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Vòi chữa cháy D65 Trung Quốc",
+		"image": "images/binh-chua-chay/DN65-tq.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "6",
+		"name": "Cuộn vòi chữa cháy Rulo DN25",
+		"image": "images/binh-chua-chay/Rulo-DN25.jpg",
+		"description": ""
+	},
+
+	{
+		"sub_category_id": "7",
+		"name": "Trung tâm báo cháy GST",
+		"image": "images/bao-chay/bao-chay-gst.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Chuông còi báo cháy GST",
+		"image": "images/bao-chay/chay-gst.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Đầu báo gas",
+		"image": "images/bao-chay/dau-bao-ga.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Đầu báo khói",
+		"image": "images/bao-chay/dau-bao-khoi.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Đầu báo nhiệt",
+		"image": "images/bao-chay/dau-bao-nhiet.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Trung tâm báo cháy GST địa chỉ",
+		"image": "images/bao-chay/GST-DIA-CHI.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "7",
+		"name": "Đầu báo khói tại chổ",
+		"image": "images/bao-chay/khoi-tai-cho.jpg",
+		"description": ""
+	},
+
+
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét ERICO - USA",
+		"image": "images/kim-thu-set/erico.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét LIVA- Thổ Nhĩ Kỳ",
+		"image": "images/kim-thu-set/kim_thu_set_liva.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét PSR- Tây Ban Nha",
+		"image": "images/kim-thu-set/PSR-Tay-Ban-Nha.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét SCHIRTEC- Áo",
+		"image": "images/kim-thu-set/SCHIRTEC-Ao.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "STAR - Pháp",
+		"image": "images/kim-thu-set/star-Phap.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét STORMASTER LPI- Úc",
+		"image": "images/kim-thu-set/STORMASTER-LPI.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét Cirprotec - Tây Ban Nha",
+		"image": "images/kim-thu-set/tay-ban-nha.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "8",
+		"name": "Kim thu sét ONAY-Thổ Nhĩ Kỳ",
+		"image": "images/kim-thu-set/tho-nhi-ky.jpg",
+		"description": ""
+	},
+
+
+
+	{
+		"sub_category_id": "9",
+		"name": "Cáp thoát sét bằng đồng bọc PVC",
+		"image": "images/phu-kien-he-thong-chong-set/dau-boc-pvc.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Cáp thoát sét bằng đồng bọc PVC ",
+		"image": "images/phu-kien-he-thong-chong-set/day-2.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Cáp thoát sét mạ kẽm",
+		"image": "images/phu-kien-he-thong-chong-set/day-3.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Cáp thoát sét 7 lớp chống nhiễu",
+		"image": "images/phu-kien-he-thong-chong-set/day-4.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Hóa chất giảm điện trở đất",
+		"image": "images/phu-kien-he-thong-chong-set/day-5.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Cọc tiếp địa",
+		"image": "images/phu-kien-he-thong-chong-set/day-6.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Khuôn hàn hóa nhiệt & phụ kiện",
+		"image": "images/phu-kien-he-thong-chong-set/day-7.jpg",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Ốc xiết cáp",
+		"image": "images/phu-kien-he-thong-chong-set/day-8.gif",
+		"description": ""
+	},
+	{
+		"sub_category_id": "9",
+		"name": "Hộp đo điện trở đất",
+		"image": "images/phu-kien-he-thong-chong-set/day-9.jpg",
+		"description": ""
+	},
+	
+
+
+	{
+		"sub_category_id": "10",
+		"name": "Tủ chống sét cho nguồn điện LDY-40B/YS",
+		"image": "images/tu-chong-set/LDY-YS.jpg",
+		"description": ""
+	},
+
+
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị cắt sét 1 pha cấp I+II",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb1.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị cắt sét 3 pha cấp I+II",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb2.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị cắt sét 1 pha cấp II",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb3.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị cắt sét 3 pha cấp II",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb4.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét line điện thoại, máy tinh",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb5.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét line điện thoại",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb6.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét đường truyền dữ liệu",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb7.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét đường truyền dữ liệu",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb8.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị lọc sét đường nguồn",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb9.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét tín hiệu Video",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb10.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét tín hiệu cáp đồng trục",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb11.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét tín hiệu cáp đồng trục",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb12.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị chống sét tín hiệu Video",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb13.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị cắt lọc sét 1 pha cấp III",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb14.JPG",
+		"description": ""
+	},
+	{
+		"sub_category_id": "11",
+		"name": "Thiết bị lọc sét 3 pha cấp III",
+		"image": "images/thiet-bi-chong-set-lan-truyen/tb15.JPG",
+		"description": ""
+	}
+]

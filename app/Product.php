@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function hasCategory()
+    protected $table = 'products';
+
+    public function hasSubCategory()
     {
         return $this->hasOne('App\Sub_category');
     }

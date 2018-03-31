@@ -15,8 +15,8 @@ class CreateFeedbacksTable extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('title', 100)->nullable($value = false);
-            $table->text('content')->nullable($value = false);
+            $table->char('title', 100);
+            $table->text('content');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });

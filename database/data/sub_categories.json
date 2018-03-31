@@ -1,0 +1,46 @@
+[
+	{
+		"category_id": "1",
+		"name": "Camera"
+	},
+	{
+		"category_id": "1",
+		"name": "Thiết bị báo động"
+	},
+	{
+		"category_id": "1",
+		"name": "Thiết bị kiểm soát ra vào"
+	},
+	{
+		"category_id": "1",
+		"name": "Hệ thống ghi hình KTS"
+	},
+	{
+		"category_id": "2",
+		"name": "Bình chữa cháy"
+	},
+	{
+		"category_id": "2",
+		"name": "Vòi chữa cháy"
+	},
+	{
+		"category_id": "2",
+		"name": "Báo cháy"
+	},
+	{
+		"category_id": "3",
+		"name": "Kim thu sét"
+	},
+	{
+		"category_id": "3",
+		"name": "Phụ kiện hệ thống chống sét"
+	},
+	{
+		"category_id": "3",
+		"name": "Tủ chống sét"
+	},
+	{
+		"category_id": "3",
+		"name": "Thiết bị chống sét lan truyền"
+	}
+]
