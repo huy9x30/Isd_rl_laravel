@@ -27,12 +27,6 @@
 <script type="text/javascript" src="http://alicohue.com/js/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="http://alicohue.com/css/jquery.fancybox-1.3.4.css" media="screen" />
 <script type="text/javascript">
-  $(window).load(function() {
-  $('#slider1').nivoSlider({effect: 'boxRain', slices: 15, boxCols: 8, boxRows: 4,animSpeed: 800, startSlide: 0, directionNav: true, directionNavHide: true,controlNav: true,keyboardNav: true, pauseOnHover: true, pauseTime: 4500, manualAdvance: false, captionOpacity: 0.8,});
-  $('#slider2').nivoSlider({effect: 'boxRain', slices: 15, boxCols: 8,boxRows: 4, animSpeed: 800, startSlide: 0, directionNav: true, directionNavHide: true, controlNav: true, keyboardNav: true, pauseOnHover: true, pauseTime: 4500, manualAdvance: false, captionOpacity: 0.8, });
-  $('#slider3').nivoSlider({effect: 'boxRain', slices: 15,boxCols: 8, boxRows: 4, animSpeed: 800, startSlide: 0, directionNav: true, directionNavHide: true, controlNav: true, keyboardNav: true, pauseOnHover: true, pauseTime: 4500, manualAdvance: false, captionOpacity: 0.8, });});
-</script>
-<script type="text/javascript">
   jQuery(function(){
   jQuery('ul.sf-menu').superfish();
   });
@@ -45,15 +39,21 @@
               <img class="newlogo_img" src="http://alicohue.com/logo/313/logo.gif" />            </div>
             <div class="newsection_text" style="height:180px">
               <div class="newsection_text1" style="height:180px;left:0px; top:0px;">
-                    <h1 class="newsection_text11" style="margin-bottom:0px; color:#FF0000; font-family:; font-size:35px">CÔNG TY TNHH ẤN LĨNH</h1>
-                    <div class="newsection_text12" style="color:#FFFF00; font-family:; font-size:18px"><i> Chuyên cung cấp thiết bị & hệ thống: An Ninh - Chống Sét</i></div>
+                    <h1 class="newsection_text11" style="margin-bottom:0px; color:#FF0000; font-family:; font-size:35px">
+                      {{ $data['contacts']->get(1)->name }}
+                    </h1>
+                    <div class="newsection_text12" style="color:#FFFF00; font-family:; font-size:18px"><i>
+                      {{ $data['contacts']->get(1)->introductionMessage }}
+                    </i></div>
 
-                    <div class="newsection_text13" style="margin-top:16px; color:#000000; font-size:; font-family:">Đ/C: 11/59 An Dương Vương, TP. Huế - Vp giao dịch : 8/33 An Dương Vương - Tp Huế                    </div>
+                    <div class="newsection_text13" style="margin-top:16px; color:#000000; font-size:; font-family:">
+                      Đ/C: {{ $data['contacts']->get(1)->address }}
+                    </div>
 
                      <div class="newsection_text14" style="color:#000000; font-size:; font-family:">
 
-                     Tel: (054) 350 2882
-                     - Fax: (054) 384 5840
+                     Tel: {{ $data['contacts']->get(1)->workplacePhone }}
+                     - Fax: {{ $data['contacts']->get(1)->fax }}
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <a style="text-transform:uppercase; color:#FFFF00" href="#">SẢN PHẨM</a>
                     <ul>
                 <!-- tim nhom lon san pham -->
-                    @foreach($categories as $category)
+                    @foreach($data['categories'] as $category)
                         <li>
                           <a style="text-transform:uppercase; color:#FFFF00" href="#">{{ $category -> name }}</a>
                           <ul>
@@ -110,39 +110,12 @@
          </div>
     </div>
     <!-- End of menu -->
-
-
-    <!-- slider style 1 -->
-
-        <div style="height:280px">
-        <div class="slider-wrapper2 theme-default">
-               <div id="slider2" class="nivoSlider" style="max-height:280px; max-width:990px; height:280px">
-
-                <a href="#"><img src="http://alicohue.com/img_slide/313/slai-an-linh.jpg"/></a>
-
-                <a href="#"><img src="http://alicohue.com/img_slide/313/slai-an-linh2.jpg"/></a>
-
-                <a href="#"><img src="http://alicohue.com/img_slide/313/slai-an-linh3.jpg"/></a>
-
-               </div>
-        </div>
-        </div>
-
-    <!-- End of slide1 anh chay -->
     <!-- end products -->
         <!--PHAN CONTAIN CHINH-->
     <div id="contentsection">
       <!-- -menu ngang -->
         <div id="contentsectionleft">
-             <div class="searchproduct">
-                <div class="input">
-                <input type="text"  name="keyword" size="16" class="inputtext" tabindex="1" placeholder="Tìm sản phẩm dịch vụ" >
-                </div>
-                <div class="buttom">
-                 <INPUT id=sensisSubmit type=image src="{{ asset('images/search_button.png') }}">
-                </div>
-             </div>
-                    @foreach($categories as $category)
+                @foreach($data['categories'] as $category)
 
                 <div class="texttilte" style="background:; color:; border-radius: 3px 3px 3px 3px; padding-top:5px; padding-bottom:5px">{{ $category->name }}</div>
 
@@ -167,15 +140,18 @@
             <div class="linetilte"></div>
 
              <div class="contact">
-              <div style="height:89px"><img class="contact_img" src="http://alicohue.com/img_contact/313/45YG.jpg" /></div>
-                <div class="contact_name">Bà Nguyễn Thị Hòa</div>
+              <div style="height:89px"><img class="contact_img" src="{{ asset($data['contacts']->get(0)->image) }}" alt="CONTACT-IMAGE" /></div>
+                <div class="contact_name">
+                  {{ $data['contacts']->get(0)->name }}
+                </div>
                 <div class="contact_chucvu">
-        Giám Đốc
-                - <span style="color:#2194d2">(054) 350 2882</span>
+                    {{ $data['contacts']->get(0)->position }} - <span style="color:#2194d2">{{ $data['contacts']->get(0)->personalPhone }}</span>
 
                 </div>
 
-                <div class="contact_chucvu" style="font-size:10px">Email: <a style="color:#2194d2" href="mailto:alicohue@yahoo.com.vn">alicohue@yahoo.com.vn</a></div>
+                <div class="contact_chucvu" style="font-size:10px">Email: <a style="color:#2194d2" href="mailto:alicohue@yahoo.com.vn">
+                  {{ $data['contacts']->get(0)->email }}
+                </a></div>
 
                 <p style="clear:both"></p>
           </div>
@@ -189,12 +165,22 @@
     <!--KET THUC CONTAIN CHINH-->
   <div id="footer">
 
-             <div class="company_name">CÔNG TY TNHH ẤN LĨNH</div>
-             <div class="diachi"><strong>Địa chỉ:</strong>  11/59 An Dương Vương, Thành Phố Huế - Vp giao dịch: 8/33 An Dương Vương - Tp Huế</div>
-             <div class="dienthoai"><strong>Điên thoại:</strong> (054) 3 502 882 - (054) 3 845840  - <strong> Fax:</strong> (054) 054 3845840 </div>
-             <div class="dienthoai"><strong>Email:</strong> <a style="color:#0099CC" href="mailto:alicohue@yahoo.com.vn">alicohue@yahoo.com.vn</a>  - <strong> Website:</strong> <a style="color:#0099CC" target="_blank" href="http://alicohue.com">http://alicohue.com</a></div>
+            <div class="company_name">
+              {{ $data['contacts']->get(1)->name }}
+            </div>
+            <div class="diachi"><strong>Địa chỉ:</strong>
+              {{ $data['contacts']->get(1)->address }}
+            </div>
+            <div class="dienthoai"><strong>Điên thoại:</strong>
+              {{ $data['contacts']->get(1)->workplacePhone }}
+            </div>
+            <div class="dienthoai"><strong>Email:</strong> <a style="color:#0099CC" href="mailto:{{ $data['contacts']->get(1)->email }}">
+              {{ $data['contacts']->get(1)->email }}
+            </a>  - <strong> Website:</strong> <a style="color:#0099CC" target="_blank" href="{{ route('home') }}">
+              {{ $data['contacts']->get(1)->website }}
+            </a></div>
 
-             <div class="designby">Thiết kế và cung cấp bởi <a target="_blank" href="http://trangvangvietnam.com">Trang vàng</a></div>
+            <div class="designby"></div>
 
              <p style="clear:both"></p>
 

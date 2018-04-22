@@ -10,6 +10,6 @@ class Product extends Model
 
     public function hasSubCategory()
     {
-        return $this->hasOne('App\Sub_category');
+        return $this->belongsTo('App\Sub_category', 'sub_category_id', 'id');
     }
 }

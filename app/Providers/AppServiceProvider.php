@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Contact;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +16,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('categories', Category::all());
+            
+        $data = array(
+            'categories' => Category::all(),
+            'contacts' => Contact::all()
+        );
+
+        View::share('data', $data);
     }
 
     /**

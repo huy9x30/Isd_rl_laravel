@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Introduction;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,8 @@ class HomeController extends Controller
 
     public function showIntroduction()
     {
-        return view('introduction');
+        $introduction = Introduction::all()->first();
+        return view('introduction', compact('introduction'));
     }
 
     public function showContact()

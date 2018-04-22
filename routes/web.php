@@ -30,13 +30,35 @@ Auth::routes();
 
 // TODO: ADMIN
 Route::name('admin.')->group(function () {
-	Route::get('/admin', 'Admin.AdminController@index')->name('index');
-	Route::get('/products/create', 'Admin.AdminController@create')->name('create');
-	Route::get('/products/{product_id}', 'Admin.AdminController@show')->name('show');
-	Route::post('/products/{product_id}', 'Admin.AdminController@edit')->name('create');
+	Route::get('/admin', 'Admin\AdminController@index')->name('index');
+
+    Route::get('/admin/category', 'Admin\CategoryController@show')->name('showCategories');
+    Route::post('/admin/category', 'Admin\CategoryController@create')->name('createCategory');
+    Route::put('/admin/category/{categoryId}', 'Admin\CategoryController@edit')->name('editCategory');
+    Route::delete('/admin/category/{categoryId}', 'Admin\CategoryController@delete')->name('deleteCategory');
+
+    Route::get('/admin/sub-category', 'Admin\SubCategoryController@show')->name('showSubCategories');
+    Route::post('/admin/sub-category', 'Admin\SubCategoryController@create')->name('createSubCategory');
+    Route::put('/admin/sub-category{subCategoryId}', 'Admin\SubCategoryController@edit')->name('editSubCategory');
+    Route::delete('/admin/sub-category{subCategoryId}', 'Admin\SubCategoryController@delete')->name('deleteSubCategory');
+
+    Route::get('/admin/products', 'Admin\ProductController@showAll')->name('showProducts');
+	Route::post('/admin/products', 'Admin\ProductController@create')->name('createProduct');
+	Route::get('/admin/products/{productId}', 'Admin\ProductController@show')->name('showProduct');
+	Route::put('/admin/products/{productId}', 'Admin\ProductController@edit')->name('editProduct');
+    Route::delete('/admin/products/{productId}', 'Admin\ProductController@delete')->name('deleteProduct');
+
+    Route::get('/admin/contact', 'Admin\ContactController@show')->name('showContact');
+    Route::post('/admin/contact/{contactId}', 'Admin\ContactController@edit')->name('editContact');
+
+    Route::get('/admin/introduction', 'Admin\IntroductionController@show')->name('showIntroduction');
+    Route::post('/admin/introduction', 'Admin\IntroductionController@edit')->name('editIntroduction');
+
+    Route::get('/admin/feedback', 'Admin\FeedbackController@show')->name('showFeedback');
+    
 });
 
-
+// Route::get('/admin', 'Admin\AdminController@index');
 Route::get('/test', function () {
     $a = App\Product::all()->first();
     return view('contact')->with('a', $a);

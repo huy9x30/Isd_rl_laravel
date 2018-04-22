@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\DB;
+use App\Product;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class AdminController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Auth guard before calling controller functions.
      *
      * @return void
      */
@@ -16,30 +21,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        $products = App\Product::all();
-
-        return view('admin.admin', compact('products'));
+        return view("admin.dashboard");
     }
-
-    public function show($productId) 
-    {
-
-    }
-
-    public function create(Request $request)
-    {
-
-    }
-
-    public function edit($productId, Request $request)
-    {
-
-    }
-
-    public function delete($productId)
-    {
-
-    }
-
-
 }
