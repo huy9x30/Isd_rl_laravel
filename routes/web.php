@@ -33,9 +33,11 @@ Route::name('admin.')->group(function () {
 	Route::get('/admin', 'Admin\AdminController@index')->name('index');
 
     Route::get('/admin/category', 'Admin\CategoryController@show')->name('showCategories');
+    Route::get('/admin/category/form/create', 'Admin\CategoryController@showCreateForm')->name('showCreateForm');
+    Route::get('/admin/category/form/edit/{categoryId}', 'Admin\CategoryController@showEditForm')->name('editCategoryForm');
     Route::post('/admin/category', 'Admin\CategoryController@create')->name('createCategory');
-    Route::put('/admin/category/{categoryId}', 'Admin\CategoryController@edit')->name('editCategory');
-    Route::delete('/admin/category/{categoryId}', 'Admin\CategoryController@delete')->name('deleteCategory');
+    Route::post('/admin/category/{categoryId}', 'Admin\CategoryController@edit')->name('editCategory');
+    Route::post('/admin/category/{categoryId}/delete', 'Admin\CategoryController@delete')->name('deleteCategory');
 
     Route::get('/admin/sub-category', 'Admin\SubCategoryController@show')->name('showSubCategories');
     Route::post('/admin/sub-category', 'Admin\SubCategoryController@create')->name('createSubCategory');

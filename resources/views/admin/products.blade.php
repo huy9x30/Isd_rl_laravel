@@ -3,7 +3,7 @@
 @section('title', 'Sản phẩm')
 @section('content')
     
-    <div class="row">
+ <div class="row">
 	<div class="col-md-8">
     	<h3 class="page-title">Danh sách sản phẩm</h3>
 	</div>
