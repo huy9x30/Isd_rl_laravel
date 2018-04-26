@@ -1,10 +1,10 @@
 @extends('admin.layout.master')
 
-@section('title', 'Tạo mới - Sản phẩm')
+@section('title', 'Chỉnh sửa - Sản phẩm')
 @section('content')
 <div class="row">
 	<div class="col-md-8">
-    	<h3 class="page-title">Tạo sản phẩm</h3>
+    	<h3 class="page-title">Cập nhật sản phẩm</h3>
 	</div>
 </div>
 	@if (session('success'))
@@ -20,7 +20,7 @@
 	@endif
 	<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.createProduct') }}"  enctype="multipart/form-data">
+									<form method="post" action="{{ route('admin.editProduct', ['productId' => $product->id ]) }}"  enctype="multipart/form-data">
 										@csrf
 										<div class="form-group">
 											<label for="subCategoryId">Nhóm sản phẩm chính *
@@ -33,21 +33,25 @@
 										</div>
 										<div class="form-group">
 											<label for="productName">Tên sản phẩm *</label>
-											<input id="productName" class="form-control" name="name" placeholder="Tên sản phẩm" type="text" required>
+											<input id="productName" class="form-control" name="name" value="{{ $product->name }}" type="text" required>
 											@if($errors->has('name'))
 					                            <p style="color:red">{{$errors->first('name')}}</p>
 					                        @endif
 										</div>
 										<div class="form-group">
 											<label for="imageUpload">Hình ảnh *</label>
-											<input name="image" type="file" required>
+											<img src="{{ asset($product->image) }}" alt="Ảnh sản phẩm">
+											<input name="image" type="file">
 											@if($errors->has('image'))
 						                            <p style="color:red">{{$errors->first('image')}}</p>
 						                        @endif
 										</div>
 										<div class="form-group">
 											<label for="description">Mô tả sản phẩm</label>
-											<textarea name="description" id="description"></textarea>
+											@if($errors->has('description'))
+						                            <p style="color:red">{{$errors->first('description')}}</p>
+						                        @endif
+											<textarea name="description" id="description" required="">{!! $product->description !!}</textarea>
 											<script>
 										        ClassicEditor
 										        .create( document.querySelector( '#description' ) )
@@ -55,13 +59,10 @@
 										            console.error( error );
 										        } );
 										    </script>
-										    @if($errors->has('description'))
-						                            <p style="color:red">{{$errors->first('description')}}</p>
-						                        @endif
 										</div>
 										<br>
 										<button class="btn btn-primary" type="submit">
-											Tạo mới
+											Cập nhật
 										</button>
 									</form>
 								</div>

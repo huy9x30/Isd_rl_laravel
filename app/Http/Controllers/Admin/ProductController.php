@@ -8,6 +8,9 @@ use App\Product;
 use App\Sub_category;
 use Validator;
 use Carbon\Carbon;
+use Image as ImageUpload;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -51,59 +54,144 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
+        if ($request->isMethod('post'))
+        {
+            try{
 
-         $rule = [
-            'name' => 'required',
-            'sub_category_id' => 'required',
-            'image' => 'required',
-            'description' => 'required',
-        ];
+             $rule = [
+                'name' => 'required',
+                'subCategoryId' => 'required',
+                'image' => 'required',
+                'description' => 'required',
+            ];
 
-        $messages = [
-            'name.required' => 'Tên sản phẩm là trường bắt buộc',
-            'sub_category_id.required' => 'Sub category là trường bắt buộc',
-            'image.required' => 'Ảnh sản phẩm là trường bắt buộc',
-            'description.required' => 'Mô tả sản phẩm là trường bắt buộc'
-        ];
+            $messages = [
+                'name.required' => 'Tên sản phẩm là trường bắt buộc',
+                'subCategoryId.required' => 'Sub category là trường bắt buộc',
+                'image.required' => 'Ảnh sản phẩm là trường bắt buộc',
+                'description.required' => 'Mô tả sản phẩm là trường bắt buộc'
+            ];
 
-        $validator = Validator::make($request->all(), $rule, $messages);
-        
-        if ($validator->fails()) {
-            return redirect('/admin/products/')
+            $validator = Validator::make($request->all(), $rule, $messages);
+            
+            if ($validator->fails()) {
+                return redirect()
+                        ->back()
                         ->withErrors($validator)
                         ->withInput();
-        }
+            }
 
-        try{
-            $name = $request->input('name');
-            $sub_category_id = $request->input('sub_category_id');
-            $image = $request->input('image');
-            $description = $request->input('description');
-            DB::insert('insert into products (sub_category_id, name, image, description, created_at, updated_at) values (:sub_category_id, :name, :image, :description, now(), now())', array(
-                'sub_category_id' => $sub_category_id,
-                'name' => $name,
-                'image' => $image,
-                'description' => $description
-            ));
+            $file = $request->image;
+            $fileExtension = $file->getClientOriginalExtension();
 
-        } catch (Exception $e){
-            Log::error($e->getMessage());
-        }
+            if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
+                    return redirect()
+                            ->back()
+                            ->withInput()
+                            ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
+            }
 
-        $pros = Product::paginate(10);
-        $sales = Sale::all();
-        $product_types = Product_type::all();
-        return view('admin.manage_product', compact('pros','sales', 'product_types'))->with('status', 'Tạo mới sản phẩm "' .$request->input('name'). '" thành công');
-        
+                $name = $request->name;
+                $time = Carbon::now()->micro;
+                ImageUpload::make($file)
+                        ->resizeCanvas(500,500)
+                        ->save('images/'.$time.'-'.$file->getClientOriginalName());
+
+                $imagePath = 'images/'.$time.'-'.$file->getClientOriginalName();
+
+                $subCategoryId = $request->subCategoryId;
+                $description = $request->description;
+                DB::insert('insert into products (sub_category_id, name, image, description, created_at, updated_at) values (:sub_category_id, :name, :image, :description, now(), now())', array(
+                    'sub_category_id' => $subCategoryId,
+                    'name' => $name,
+                    'image' => $imagePath,
+                    'description' => $description
+                ));
+
+                return redirect()
+                        ->back()
+                        ->with('success', 'Tạo mới thành công');
+
+            } catch (Exception $e){
+                Log::error($e->getMessage());
+            }
+        } 
     }
 
     public function edit($productId, Request $request)
     {
+        if ($request->isMethod('post'))
+        {
+            try{
 
+             $rule = [
+                'name' => 'required',
+                'description' => 'required',
+            ];
+
+            $messages = [
+                'name.required' => 'Tên sản phẩm là trường bắt buộc',
+                'description.required' => 'Mô tả sản phẩm là trường bắt buộc'
+            ];
+
+            $validator = Validator::make($request->all(), $rule, $messages);
+            
+            if ($validator->fails()) {
+                return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+            }
+                $product = Product::find($productId);
+
+            if ($request->image){
+                $file = $request->image;
+                $fileExtension = $file->getClientOriginalExtension();
+
+                if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
+                        return redirect()
+                                ->back()
+                                ->withInput()
+                                ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
+                }
+                $time = Carbon::now()->micro;
+                ImageUpload::make($file)
+                        ->resizeCanvas(500,500)
+                        ->save('images/'.$time.'-'.$file->getClientOriginalName());
+
+                $product->image = 'images/'.$time.'-'.$file->getClientOriginalName();
+            }
+
+                $product->sub_category_id = $request->subCategoryId;
+                $product->name = $request->name;
+
+                $product->description = $request->description;
+                $product->created_at = Carbon::now();
+                $product->updated_at = Carbon::now();
+                $product->save();
+
+                return redirect()
+                        ->back()
+                        ->with('success', 'Cập nhật thành công');
+
+            } catch (Exception $e){
+                Log::error($e->getMessage());
+            }
+        }
     }
 
-    public function delete($productId)
+    public function delete(Request $request, $productId)
     {
+        try {
+            if ($request->isMethod('post')) {
+                $product = Product::find($productId);
+                $productName = $product->name;
+                $product->delete();
 
+                return back()->with('success', 'Xóa sản phẩm "' . $productName . '" thành công');
+            }
+        } catch(Exception $e) {
+            return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
+        }  
     }
 }

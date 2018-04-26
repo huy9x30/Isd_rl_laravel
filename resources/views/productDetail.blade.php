@@ -45,24 +45,9 @@
             <div style="height: auto; width:738px; margin-left:10px; border-top-color:#DDD; border-top-style: dotted; border-top-width:1px; margin-top:30px;">
                 
                 <div style="font-size:16px; font-weight:700; color:#333; padding-top:18px;">Mô tả chi tiết</div>
-                <div style="color:#333; padding-top:12px; font-size:13px; line-height:21px"><p><span style="font-size: small">&#160Cảm biến hình ảnh&#160VDTECH VDT-126PTW 1.0: 1/3” HD CMOS 1.0 Megapixel Image Sensor.</span></p>
-<p><span style="font-size: small">- Hỗ trợ truy cập hình ảnh bằng công nghệ điện toán đám mây.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Điểm ảnh: Main stream (luồng mạng chính): 1280 x 720 – 25f/s. Sub stream (luồng mạng phụ): D1 (704 x 576) – 25f/s</span><o:p></o:p></p>
-<p><span style="font-size: small">- Ánh sáng tối thiểu: 0.1Lux (màu) / F1.2, 0.01 Lux (trắng đen)/ F1.2</span><o:p></o:p></p>
-<p><span style="font-size: small">- Chuẩn nén hình: H.264, AVI (Chuẩn HD 720P).</span><o:p></o:p></p>
-<p><span style="font-size: small">- Âm thanh: Hỗ trợ âm thanh 2 chiều (Two way audio), 1 micro (Audio in), 1 Jack 3.5mm (Audio out). Tích hợp sẵn Micro bên trong.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Báo động: 1CH input / 1CH output</span><o:p></o:p></p>
-<p><span style="font-size: small">- Chế độ ghi hình: Chuẩn HD 720P. Ghi liên tục, ghi theo lịch trình, ghi chuyển động.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Lưu trữ: Hỗ trợ ổ chứa card SD, Max 32G, lưu trữ, chụp ảnh</span><o:p></o:p></p>
-<p><span style="font-size: small">- Góc quay ngang: 355 độ, dọc: 90 độ.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Ống kính: 4-6mm (650)</span><o:p></o:p></p>
-<p><span style="font-size: small">- Tầm&#160camera quan sát: 11 đèn IR Led (Φ 4mm), quan sát hồng ngoại xa 15 mét.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Hình ảnh: Chống ngược sáng BLC, tự động cân bằng ánh sáng trắng ATW, AGC Auto.</span><o:p></o:p></p>
-<p><span style="font-size: small">- IR CUT Filter: Automatic/Color.</span><o:p></o:p></p>
-<p><span style="font-size: small">- Mạng: 10/100M Ethernet, RJ45, hỗ trợ DNS/FTP/PPoE/DHCP/RTSP/UPnP/Email/NTP</span><o:p></o:p></p>
-<p><span style="font-size: small">- Wifi: IEEE 802.11n, tốc độ xử lý 300Mbps</span><o:p></o:p></p>
-<p><span style="font-size: small">- Xem qua Máy tính: Macbook pro: xem 4 kênh độc lập Vmeye,&#160Windows 2000/ XP/Win 7/&#160</span><st1:place w:st="on"><span style="font-size: small">Vista</span></st1:place><o:p></o:p></p>
-<p><span style="font-size: small">- Xem qua điện thoại di động iPhone: xem 4 kênh độc lập, VMeyeSuper&#160/&#160vMeyeCloud, ghi hình trực tiếp vào iPhone. iPad: xem 9 kênh độc lập, VMeyeSuper HD/vMeyeCloud HD,&#160ghi hình trực tiếp vào iPad. Android: xem 4 kênh độc lập,&#160VMeyeSuper/ vMeyeCloud.&#160Symbian, WindowMobile, RIM(Blackberry).</span></p></div>
+                <div style="color:#333; padding-top:12px; font-size:13px; line-height:21px">
+                  {!! $product->description !!}
+                </div>
                  
                 <div style="padding-top:3px; height:auto">
                 

@@ -43,7 +43,7 @@
 													@if($product->id >= 1 && $product->id <= 114)
 														{{ $product->name }}
 													@else
-														<a href="{{ route('admin.editProductForm', ['id' => $product->id]) }}">
+														<a href="{{ route('admin.showProductEditForm', ['id' => $product->id]) }}">
 															{{ $product->name }}
 														</a>
 													@endif

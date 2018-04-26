@@ -115,7 +115,7 @@ class CategoryController extends Controller
                 return back()->with('success', 'Xóa "' . $categoryName . '" thành công');
             }
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');
+            return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
         }  
     }
 }

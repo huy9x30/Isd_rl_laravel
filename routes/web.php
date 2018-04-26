@@ -56,7 +56,7 @@ Route::name('admin.')->group(function () {
     Route::get('/admin/product/form/edit/{productId}', 'Admin\ProductController@showEditForm')->name('showProductEditForm');
 	Route::post('/admin/products', 'Admin\ProductController@create')->name('createProduct');
 	Route::post('/admin/products/{productId}', 'Admin\ProductController@edit')->name('editProduct');
-    Route::post('/admin/products/{productId}', 'Admin\ProductController@delete')->name('deleteProduct');
+    Route::post('/admin/products/{productId}/delete', 'Admin\ProductController@delete')->name('deleteProduct');
 
 
     Route::get('/admin/contact', 'Admin\ContactController@show')->name('showContact');
