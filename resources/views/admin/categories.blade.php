@@ -7,7 +7,7 @@
     	<h3 class="page-title">Danh sách nhóm sản phẩm chính</h3>
 	</div>
 	<div class="col-md-4">
-        <a style="float: right;" class="btn btn-default" href="{{ route('admin.showCreateForm') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
+        <a style="float: right;" class="btn btn-default" href="{{ route('admin.showCategoryCreateForm') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
 	</div>
 </div>
 	@if (session('success'))
@@ -27,7 +27,7 @@
 										<thead>
 											<tr>
 												<th>ID</th>
-												<th>Tên nhóm chính</th>
+												<th>Nhóm chính</th>
 												<th>Thời điểm cập nhật</th>
 												<th></th>
 											</tr>
@@ -40,7 +40,7 @@
 													@if($category->id >= 1 && $category->id <= 3)
 														{{ $category->name }}
 													@else
-														<a href="{{ route('admin.editCategoryForm', ['id' => $category->id]) }}">{{ $category->name }}</a>
+														<a href="{{ route('admin.showCategoryEditForm', ['id' => $category->id]) }}">{{ $category->name }}</a>
 													@endif
 												</td>
 												<td>
@@ -63,7 +63,7 @@
 											  		</div>
 											  		<div class="modal-body" style="color: red;">
 											  			<p>Xóa nhóm chính sẽ xóa toàn bộ nhóm phụ và sản phẩm của chúng</p> <br>
-											      		<p>Bạn chắc chắn xóa "{{ $category->name }}"?</p>
+											      		<p>Bạn chắc chắn xóa nhóm "{{ $category->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
 											      		<form method="post" action="{{ route('admin.deleteCategory', ['id' => $category->id]) }}">

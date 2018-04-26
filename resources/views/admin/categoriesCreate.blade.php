@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Nhóm sản phẩm chính')
+@section('title', 'Tạo mới - Nhóm sản phẩm chính')
 @section('content')
 <div class="row">
 	<div class="col-md-8">
@@ -20,13 +20,14 @@
 	@endif
 	<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.createCategory') }}"  style="text-align: center;">
+									<form method="post" action="{{ route('admin.createCategory') }}">
 										@csrf
 										<div class="form-group">
-											<input class="form-control" name="name" placeholder="Tên nhóm sản phẩm chính" type="text">
-											@if($errors->has('name'))
-					                            <p style="color:red">{{$errors->first('name')}}</p>
-					                        @endif
+											<label for="categoryName">Tên nhóm sản phẩm chính *</label>
+												<input id="categoryName" class="form-control" name="name" placeholder="Tên nhóm sản phẩm chính" type="text" required>
+												@if($errors->has('name'))
+						                            <p style="color:red">{{$errors->first('name')}}</p>
+						                        @endif
 										</div>
 										<br>
 										<button class="btn btn-primary" type="submit">

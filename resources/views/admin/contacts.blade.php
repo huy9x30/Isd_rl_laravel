@@ -11,7 +11,7 @@
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>Tên nhóm chính</th>
+												<th>Tên chủ thể</th>
 												<th>Thời điểm cập nhật</th>
 											</tr>
 										</thead>

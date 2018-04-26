@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Sub_category;
+use Validator;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -27,9 +30,23 @@ class ProductController extends Controller
 
     public function show($productId) 
     {
-        $products = Product::where("id", $productId);
+        $product = Product::find($productId);
+        $subCategories = Sub_category::all();
 
-        return view('')   ;
+        return view('admin.productDetail', compact('product', 'subCategories'));
+    }
+
+    public function showCreateForm() {
+        $subCategories = Sub_category::all();
+
+        return view('admin.productsCreate', compact('subCategories'));
+    }
+
+    public function showEditForm($productId) {
+        $product = Product::find($productId);
+        $subCategories = Sub_category::all();
+
+        return view('admin.productsEdit', compact('product', 'subCategories'));
     }
 
     public function create(Request $request)
