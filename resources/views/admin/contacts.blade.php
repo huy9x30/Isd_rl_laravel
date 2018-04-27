@@ -2,7 +2,7 @@
 
 @section('title', 'Thông tin liên hệ')
 @section('content')
-    	<h3 class="page-title">Danh sách Thông tin liên hệ</h3>
+    	<h3 class="page-title">Danh sách thông tin liên hệ</h3>
                     <!-- TABLE HOVER -->
 							<div class="panel">
 								
@@ -19,7 +19,11 @@
 											@foreach($contacts as $contact)
 											<tr>
 												<td>{{ $contact->id }}</td>
-												<td>{{ $contact->name }}</td>
+												<td>
+													<a href="{{ route('admin.contacts.edit', ['id' => $contact->id]) }}">
+														{{ $contact->name }}
+													</a>
+												</td>
 												<td>
 													{{ Carbon\Carbon::parse($contact->updated_at)->format('h:i A . d-m-Y') }}
 												</td>

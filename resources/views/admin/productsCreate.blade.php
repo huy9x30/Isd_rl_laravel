@@ -10,7 +10,7 @@
 	@if (session('success'))
 	    <div class="alert alert-success">
 	        {{ session('success') }}
-	        <a href="{{ route('admin.showProducts') }}" class="btn btn-default"> Đi tới danh sách?</a>
+	        <a href="{{ route('admin.products.index') }}" class="btn btn-default"> Đi tới danh sách?</a>
 	    </div>
 	@endif
 	@if (session('error'))
@@ -20,7 +20,7 @@
 	@endif
 	<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.createProduct') }}"  enctype="multipart/form-data">
+									<form method="post" action="{{ route('admin.products.store') }}"  enctype="multipart/form-data">
 										@csrf
 										<div class="form-group">
 											<label for="subCategoryId">Nhóm sản phẩm chính *

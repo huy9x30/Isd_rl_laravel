@@ -8,7 +8,7 @@
     	<h3 class="page-title">Danh sách sản phẩm</h3>
 	</div>
 	<div class="col-md-4">
-        <a style="float: right;" class="btn btn-default" href="{{ route('admin.showProductCreateForm') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
+        <a style="float: right;" class="btn btn-default" href="{{ route('admin.products.create') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
 	</div>
 </div>
 	@if (session('success'))
@@ -37,16 +37,12 @@
 										</thead>
 										<tbody>
 											@foreach($products as $product)
-											<tr data-toggle="tooltip" data-placement="bottom" title="Không được phép xóa hay thay đổi dữ liệu mẫu. Hãy tạo mới để sử dụng">
+											<tr>
 												<td>{{ $product->id }}</td>
 												<td>
-													@if($product->id >= 1 && $product->id <= 114)
-														{{ $product->name }}
-													@else
-														<a href="{{ route('admin.showProductEditForm', ['id' => $product->id]) }}">
+														<a href="{{ route('admin.products.edit', ['id' => $product->id]) }}">
 															{{ $product->name }}
 														</a>
-													@endif
 												</td>
 												<td><img style="max-height: 100px; max-width: auto" src="{{ asset($product->image) }}" alt="{{ $product->name }}"></td>
 												<td>{{ $product->hasSubCategory->name }}</td>
@@ -54,11 +50,7 @@
 													{{ Carbon\Carbon::parse($product->updated_at)->format('h:i A . d-m-Y') }}
 												</td>
 												<td>
-													@if($product->id >= 1 && $product->id <= 114)
-														
-													@else
-														<a data-toggle="modal" data-target="#delete-{{ $product->id }}"><i class="fa fa-trash"></i></a>
-													@endif
+														<button class="btn btn-default" data-toggle="modal" data-target="#delete-{{ $product->id }}"><i class="fa fa-trash"></i></button>
 												</td>
 											</tr>
 											<div class="modal fade" id="delete-{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -72,7 +64,8 @@
 											      		<p>Bạn chắc chắn xóa sản phẩm "{{ $product->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
-											      		<form method="post" action="{{ route('admin.deleteProduct', ['procuctId' => $product->id]) }}">
+											      		<form method="post" action="{{ route('admin.products.destroy', ['procuctId' => $product->id]) }}">
+											      			@method('DELETE')
 														@csrf
 													    	<button class="btn btn-danger" type="submit">Xác nhận</button>
 												    	</form>

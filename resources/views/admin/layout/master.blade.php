@@ -63,11 +63,11 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="{{ route('admin.index') }}"><i class="lnr lnr-home"></i> <span>Trang chính</span></a></li>
-						<li><a href="{{ route('admin.showCategories') }}" class=""><i class="fa fa-list"></i> <span>Nhóm sản phẩm chính</span></a></li>
-						<li><a href="{{ route('admin.showSubCategories') }}" class=""><i class="fa fa-list-alt"></i> <span>Nhóm sản phẩm phụ</span></a></li>
-						<li><a href="{{ route('admin.showProducts') }}" class=""><i class="fa fa-tasks"></i> <span>Sản phẩm</span></a></li>
-						<li><a href="{{ route('admin.showContact') }}" class=""><i class="lnr lnr-pencil"></i> <span> Thông tin liên hệ</span></a></li>
-						<li><a href="{{ route('admin.showIntroduction') }}" class=""><i class="lnr lnr-pencil"></i> <span> Giới thiệu công ty</span></a></li>
+						<li><a href="{{ route('admin.categories.index') }}" class=""><i class="fa fa-list"></i> <span>Nhóm sản phẩm chính</span></a></li>
+						<li><a href="{{ route('admin.subCategories.index') }}" class=""><i class="fa fa-list-alt"></i> <span>Nhóm sản phẩm phụ</span></a></li>
+						<li><a href="{{ route('admin.products.index') }}" class=""><i class="fa fa-tasks"></i> <span>Sản phẩm</span></a></li>
+						<li><a href="{{ route('admin.contacts.index') }}" class=""><i class="lnr lnr-pencil"></i> <span> Thông tin liên hệ</span></a></li>
+						<li><a href="{{ route('admin.introductions.index') }}" class=""><i class="lnr lnr-pencil"></i> <span> Giới thiệu công ty</span></a></li>
 						<li><a href="{{ route('admin.showFeedback') }}" class=""><i class="fa fa-envelope"></i> Phản hồi</span></a></li>
 					</ul>
 				</nav>

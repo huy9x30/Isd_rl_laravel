@@ -8,7 +8,7 @@
     	<h3 class="page-title">Danh sách nhóm sản phẩm phụ</h3>
 	</div>
 	<div class="col-md-4">
-        <a style="float: right;" class="btn btn-default" href="{{ route('admin.showSubCategoryCreateForm') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
+        <a style="float: right;" class="btn btn-default" href="{{ route('admin.subCategories.create') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
 	</div>
 </div>
 	@if (session('success'))
@@ -22,10 +22,7 @@
 	    </div>
 	@endif
 							<!-- TABLE HOVER -->
-							<div class="panel"><!-- 
-								<div class="panel-heading">
-									<h3 class="panel-title"></h3>
-								</div> -->
+							<div class="panel">
 								<div class="panel-body table-reponsible">
 									<table class="table table-hover" style="table-layout: fixed; width: 100%">
 										<thead>
@@ -42,24 +39,16 @@
 											<tr data-toggle="tooltip" data-placement="bottom" title="Không được phép xóa hay thay đổi dữ liệu mẫu. Hãy tạo mới để sử dụng">
 												<td>{{ $subCategory->id }}</td>
 												<td>
-													@if($subCategory->id >= 1 && $subCategory->id <= 11)
-														{{ $subCategory->name }}
-													@else
-														<a href="{{ route('admin.showSubCategoryEditForm', ['id' => $subCategory->id]) }}">
+														<a href="{{ route('admin.subCategories.edit', ['id' => $subCategory->id]) }}">
 															{{ $subCategory->name }}
 														</a>
-													@endif
 												</td>
 												<td>{{ $subCategory->hasCategory->name }}</td>
 												<td>
 													{{ Carbon\Carbon::parse($subCategory->updated_at)->format('h:i A . d-m-Y') }}
 												</td>
 												<td style="text-align: center;">
-													@if($subCategory->id >= 1 && $subCategory->id <= 11)
-														
-													@else
-														<a data-toggle="modal" data-target="#delete-{{ $subCategory->id }}"><i class="fa fa-trash"></i></a>
-													@endif
+														<button class="btn btn-default" data-toggle="modal" data-target="#delete-{{ $subCategory->id }}"><i class="fa fa-trash"></i></button>
 												</td>
 											</tr>
 											<div class="modal fade" id="delete-{{ $subCategory->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -74,7 +63,8 @@
 											      		<p>Bạn chắc chắn xóa nhóm "{{ $subCategory->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
-											      		<form method="post" action="{{ route('admin.deleteSubCategory', ['subCategoryid' => $subCategory->id]) }}">
+											      		<form method="post" action="{{ route('admin.subCategories.destroy', ['subCategoryid' => $subCategory->id]) }}">
+											      			@method('DELETE')
 														@csrf
 													    	<button class="btn btn-danger" type="submit">Xác nhận</button>
 												    	</form>

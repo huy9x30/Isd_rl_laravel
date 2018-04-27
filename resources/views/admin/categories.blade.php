@@ -7,7 +7,7 @@
     	<h3 class="page-title">Danh sách nhóm sản phẩm chính</h3>
 	</div>
 	<div class="col-md-4">
-        <a style="float: right;" class="btn btn-default" href="{{ route('admin.showCategoryCreateForm') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
+        <a style="float: right;" class="btn btn-default" href="{{ route('admin.categories.create') }}"><i class="fa fa-plus-square"></i> Tạo mới</a>
 	</div>
 </div>
 	@if (session('success'))
@@ -37,21 +37,13 @@
 											<tr data-toggle="tooltip" data-placement="bottom" title="Không được phép xóa hay thay đổi dữ liệu mẫu. Hãy tạo mới để sử dụng">
 												<td>{{ $category->id }}</td>
 												<td>
-													@if($category->id >= 1 && $category->id <= 3)
-														{{ $category->name }}
-													@else
-														<a href="{{ route('admin.showCategoryEditForm', ['id' => $category->id]) }}">{{ $category->name }}</a>
-													@endif
+														<a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}">{{ $category->name }}</a>
 												</td>
 												<td>
 													{{ Carbon\Carbon::parse($category->updated_at)->format('h:i A . d-m-Y') }}
 												</td>
 												<td style="text-align: center;">
-													@if($category->id >= 1 && $category->id <= 3)
-														
-													@else
 														<button class="btn btn-default" data-toggle="modal" data-target="#delete-{{ $category->id }}"><i class="fa fa-trash"></i></button>
-													@endif
 												</td>
 											</tr>
 											<div class="modal fade" id="delete-{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -66,7 +58,8 @@
 											      		<p>Bạn chắc chắn xóa nhóm "{{ $category->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
-											      		<form method="post" action="{{ route('admin.deleteCategory', ['id' => $category->id]) }}">
+											      		<form method="post" action="{{ route('admin.categories.destroy', ['id' => $category->id]) }}">
+											      		@method('DELETE')
 														@csrf
 													    	<button class="btn btn-danger" type="submit">Xác nhận</button>
 												    	</form>

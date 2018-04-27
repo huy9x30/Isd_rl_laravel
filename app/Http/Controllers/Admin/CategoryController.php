@@ -20,26 +20,25 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function show() {
+    public function index() {
     	$categories = Category::paginate(10);
 
     	return view('admin.categories', compact('categories'));
     }
 
 
-    public function showCreateForm() {
+    public function create() {
         return view('admin.categoriesCreate');
     }
 
 
-    public function showEditForm($categoryId) {
+    public function edit($categoryId) {
         $category = Category::find($categoryId);
 
         return view('admin.categoriesEdit', compact('category'));
     }
 
-    public function create(Request $request) {
-        if ($request->isMethod('post')) {
+    public function store(Request $request) {
             try {
                 $rule = [
                     'name' => 'required'
@@ -72,10 +71,9 @@ class CategoryController extends Controller
             } catch (Exception $e){
                 return back()->with('error', 'Có lỗi xảy ra trong quá trình tạo mới. Vui lòng thử lại');
             }
-        }
     }
 
-    public function edit(Request $request, $categoryId) {
+    public function update(Request $request, $categoryId) {
         try {
             $rule = [
                 'name' => 'required'
@@ -105,15 +103,13 @@ class CategoryController extends Controller
         }        
     }
 
-    public function delete(Request $request, $categoryId) {
+    public function destroy(Request $request, $categoryId) {
         try {
-            if ($request->isMethod('post')) {
                 $category = Category::find($categoryId);
                 $categoryName = $category->name;
                 $category->delete();
 
                 return back()->with('success', 'Xóa "' . $categoryName . '" thành công');
-            }
         } catch(Exception $e) {
             return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
         }  

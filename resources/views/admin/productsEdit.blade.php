@@ -10,7 +10,7 @@
 	@if (session('success'))
 	    <div class="alert alert-success">
 	        {{ session('success') }}
-	        <a href="{{ route('admin.showProducts') }}" class="btn btn-default"> Đi tới danh sách?</a>
+	        <a href="{{ route('admin.products.index') }}" class="btn btn-default"> Đi tới danh sách?</a>
 	    </div>
 	@endif
 	@if (session('error'))
@@ -20,7 +20,8 @@
 	@endif
 	<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.editProduct', ['productId' => $product->id ]) }}"  enctype="multipart/form-data">
+									<form method="post" action="{{ route('admin.products.update', ['productId' => $product->id ]) }}" enctype="multipart/form-data">
+										@method('PUT')
 										@csrf
 										<div class="form-group">
 											<label for="subCategoryId">Nhóm sản phẩm chính *
@@ -39,15 +40,15 @@
 					                        @endif
 										</div>
 										<div class="form-group">
-											<label for="imageUpload">Hình ảnh *</label>
-											<img src="{{ asset($product->image) }}" alt="Ảnh sản phẩm">
-											<input name="image" type="file">
+											<label for="imageUpload">Hình ảnh</label>
 											@if($errors->has('image'))
 						                            <p style="color:red">{{$errors->first('image')}}</p>
 						                        @endif
+											<img src="{{ asset($product->image) }}" alt="Ảnh sản phẩm">
+											<input name="image" type="file">
 										</div>
 										<div class="form-group">
-											<label for="description">Mô tả sản phẩm</label>
+											<label for="description">Mô tả sản phẩm *</label>
 											@if($errors->has('description'))
 						                            <p style="color:red">{{$errors->first('description')}}</p>
 						                        @endif
@@ -67,7 +68,6 @@
 									</form>
 								</div>
 							</div>
-							<!-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script> -->
     
 							<!-- END INPUT GROUPS -->
 							@endsection

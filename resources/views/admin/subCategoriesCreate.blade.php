@@ -10,7 +10,7 @@
 	@if (session('success'))
 	    <div class="alert alert-success">
 	        {{ session('success') }}
-	        <a href="{{ route('admin.showSubCategories') }}" class="btn btn-default"> Đi tới danh sách?</a>
+	        <a href="{{ route('admin.subCategories.index') }}" class="btn btn-default"> Đi tới danh sách?</a>
 	    </div>
 	@endif
 	@if (session('error'))
@@ -20,7 +20,7 @@
 	@endif
 	<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.createSubCategory') }}"  >
+									<form method="post" action="{{ route('admin.subCategories.store') }}"  >
 										@csrf
 										<div class="form-group">
 											<label for="categoryId">Nhóm sản phẩm chính *

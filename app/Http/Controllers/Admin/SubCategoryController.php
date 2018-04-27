@@ -21,19 +21,19 @@ class SubCategoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function show() {
+    public function index() {
         $subCategories = Sub_category::paginate(10);
 
         return view('admin.subCategories', compact('subCategories'));
     }
 
-    public function showCreateForm() {
+    public function create() {
         $categories = Category::all();
 
         return view('admin.subCategoriesCreate', compact('categories'));
     }
 
-    public function showEditForm($subCategoryId) 
+    public function edit($subCategoryId) 
     {
         $subCategory = Sub_category::find($subCategoryId);
         $categories = Category::all();
@@ -41,8 +41,7 @@ class SubCategoryController extends Controller
         return view('admin.subCategoriesEdit', compact('subCategory', 'categories'));
     }
 
-    public function create(Request $request) {
-        if ($request->isMethod('post')) {
+    public function store(Request $request) {
             try {
                 $rule = [
                     'name' => 'required'
@@ -76,10 +75,9 @@ class SubCategoryController extends Controller
             } catch (Exception $e){
                 return back()->with('error', 'Có lỗi xảy ra trong quá trình tạo mới. Vui lòng thử lại');
             }
-        }
     }
 
-    public function edit(Request $request, $subCategoryId) {
+    public function update(Request $request, $subCategoryId) {
         try {
             $rule = [
                 'name' => 'required'
@@ -109,15 +107,13 @@ class SubCategoryController extends Controller
         }        
     }
 
-    public function delete(Request $request, $categoryId) {
+    public function destroy(Request $request, $categoryId) {
         try {
-            if ($request->isMethod('post')) {
                 $sub_category = Sub_category::find($categoryId);
                 $sub_categoryName = $sub_category->name;
                 $sub_category->delete();
 
                 return back()->with('success', 'Xóa "' . $sub_categoryName . '" thành công');
-            }
         } catch(Exception $e) {
             return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');
         }  

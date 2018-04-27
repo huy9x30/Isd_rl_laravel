@@ -9,7 +9,6 @@ use App\Sub_category;
 use Validator;
 use Carbon\Carbon;
 use Image as ImageUpload;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -24,38 +23,28 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function showAll()
+    public function index()
     {
         $products = Product::paginate(10);
 
         return view('admin.products', compact('products'));
     }
 
-    public function show($productId) 
-    {
-        $product = Product::find($productId);
-        $subCategories = Sub_category::all();
-
-        return view('admin.productDetail', compact('product', 'subCategories'));
-    }
-
-    public function showCreateForm() {
+    public function create() {
         $subCategories = Sub_category::all();
 
         return view('admin.productsCreate', compact('subCategories'));
     }
 
-    public function showEditForm($productId) {
+    public function edit($productId) {
         $product = Product::find($productId);
         $subCategories = Sub_category::all();
 
         return view('admin.productsEdit', compact('product', 'subCategories'));
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        if ($request->isMethod('post'))
-        {
             try{
 
              $rule = [
@@ -81,15 +70,16 @@ class ProductController extends Controller
                         ->withInput();
             }
 
-            $file = $request->image;
-            $fileExtension = $file->getClientOriginalExtension();
+            if($request->image){
+                $file = $request->image;
+                $fileExtension = $file->getClientOriginalExtension();
 
-            if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
+                if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
                     return redirect()
                             ->back()
                             ->withInput()
                             ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
-            }
+                }
 
                 $name = $request->name;
                 $time = Carbon::now()->micro;
@@ -98,7 +88,7 @@ class ProductController extends Controller
                         ->save('images/'.$time.'-'.$file->getClientOriginalName());
 
                 $imagePath = 'images/'.$time.'-'.$file->getClientOriginalName();
-
+            }
                 $subCategoryId = $request->subCategoryId;
                 $description = $request->description;
                 DB::insert('insert into products (sub_category_id, name, image, description, created_at, updated_at) values (:sub_category_id, :name, :image, :description, now(), now())', array(
@@ -115,16 +105,13 @@ class ProductController extends Controller
             } catch (Exception $e){
                 Log::error($e->getMessage());
             }
-        } 
     }
 
-    public function edit($productId, Request $request)
+    public function update($productId, Request $request)
     {
-        if ($request->isMethod('post'))
-        {
             try{
 
-             $rule = [
+            $rule = [
                 'name' => 'required',
                 'description' => 'required',
             ];
@@ -177,19 +164,16 @@ class ProductController extends Controller
             } catch (Exception $e){
                 Log::error($e->getMessage());
             }
-        }
     }
 
-    public function delete(Request $request, $productId)
+    public function destroy(Request $request, $productId)
     {
         try {
-            if ($request->isMethod('post')) {
                 $product = Product::find($productId);
                 $productName = $product->name;
                 $product->delete();
 
                 return back()->with('success', 'Xóa sản phẩm "' . $productName . '" thành công');
-            }
         } catch(Exception $e) {
             return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
         }  
