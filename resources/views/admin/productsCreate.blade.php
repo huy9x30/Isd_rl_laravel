@@ -2,11 +2,7 @@
 
 @section('title', 'Tạo mới - Sản phẩm')
 @section('content')
-<div class="row">
-	<div class="col-md-8">
     	<h3 class="page-title">Tạo sản phẩm</h3>
-	</div>
-</div>
 	@if (session('success'))
 	    <div class="alert alert-success">
 	        {{ session('success') }}
@@ -18,12 +14,15 @@
 	        {{ session('error') }}
 	    </div>
 	@endif
-	<div class="panel">
+								<div class="panel">
 								<div class="panel-body">
-									<form method="post" action="{{ route('admin.products.store') }}"  enctype="multipart/form-data">
+									<form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
 										@csrf
 										<div class="form-group">
 											<label for="subCategoryId">Nhóm sản phẩm chính *
+											@if($errors->has('subCategoryId'))
+					                            <p style="color:red">{{$errors->first('name')}}</p>
+					                        @endif
 											<select name="subCategoryId" id="subCategoryId" class="form-control">
 												@foreach($subCategories as $subCategory)
 												<option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
@@ -33,7 +32,7 @@
 										</div>
 										<div class="form-group">
 											<label for="productName">Tên sản phẩm *</label>
-											<input id="productName" class="form-control" name="name" placeholder="Tên sản phẩm" type="text" required>
+											<input  name="name" id="productName" class="form-control" placeholder="Tên sản phẩm" type="text" required>
 											@if($errors->has('name'))
 					                            <p style="color:red">{{$errors->first('name')}}</p>
 					                        @endif
@@ -46,18 +45,18 @@
 						                        @endif
 										</div>
 										<div class="form-group">
-											<label for="description">Mô tả sản phẩm</label>
+											@if($errors->has('description'))
+						                            <p style="color:red">{{$errors->first('description')}}</p>
+						                        @endif
+											<label for="description">Mô tả sản phẩm *</label>
 											<textarea name="description" id="description"></textarea>
 											<script>
 										        ClassicEditor
 										        .create( document.querySelector( '#description' ) )
 										        .catch( error => {
 										            console.error( error );
-										        } );
+										        });
 										    </script>
-										    @if($errors->has('description'))
-						                            <p style="color:red">{{$errors->first('description')}}</p>
-						                        @endif
 										</div>
 										<br>
 										<button class="btn btn-primary" type="submit">
@@ -66,7 +65,5 @@
 									</form>
 								</div>
 							</div>
-							<!-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script> -->
-    
 							<!-- END INPUT GROUPS -->
-							@endsection
+@endsection

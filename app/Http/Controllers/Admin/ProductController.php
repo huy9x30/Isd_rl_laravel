@@ -23,9 +23,9 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Product $product)
     {
-        $products = Product::paginate(10);
+        $products = $product->sortable(['id', 'asc'])->paginate(10);
 
         return view('admin.products', compact('products'));
     }
@@ -45,20 +45,18 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-            try{
-
+        try{
              $rule = [
                 'name' => 'required',
                 'subCategoryId' => 'required',
-                'image' => 'required',
-                'description' => 'required',
+                'image' => 'required|image',
             ];
 
             $messages = [
                 'name.required' => 'Tên sản phẩm là trường bắt buộc',
                 'subCategoryId.required' => 'Sub category là trường bắt buộc',
                 'image.required' => 'Ảnh sản phẩm là trường bắt buộc',
-                'description.required' => 'Mô tả sản phẩm là trường bắt buộc'
+                'image.image' => 'File được chọn phải là hình ảnh',
             ];
 
             $validator = Validator::make($request->all(), $rule, $messages);
@@ -67,44 +65,44 @@ class ProductController extends Controller
                 return redirect()
                         ->back()
                         ->withErrors($validator)
-                        ->withInput();
+                        ->withInput()
+                        ->with('error', 'Here!');
             }
 
-            if($request->image){
-                $file = $request->image;
-                $fileExtension = $file->getClientOriginalExtension();
-
-                if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
-                    return redirect()
-                            ->back()
-                            ->withInput()
-                            ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
-                }
-
-                $name = $request->name;
-                $time = Carbon::now()->micro;
-                ImageUpload::make($file)
-                        ->resizeCanvas(500,500)
-                        ->save('images/'.$time.'-'.$file->getClientOriginalName());
-
-                $imagePath = 'images/'.$time.'-'.$file->getClientOriginalName();
+            $product = new Product();
+            $file = $request->image;
+            $fileExtension = $file->getClientOriginalExtension();
+            if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
+                return redirect()
+                        ->back()
+                        ->withInput()
+                        ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
             }
-                $subCategoryId = $request->subCategoryId;
-                $description = $request->description;
-                DB::insert('insert into products (sub_category_id, name, image, description, created_at, updated_at) values (:sub_category_id, :name, :image, :description, now(), now())', array(
-                    'sub_category_id' => $subCategoryId,
-                    'name' => $name,
-                    'image' => $imagePath,
-                    'description' => $description
-                ));
+
+            $product->name = $request->name;
+            $time = Carbon::now()->micro;
+            ImageUpload::make($file)
+                    ->resize(500,500)
+                    ->save('images/'.$time.'-'.$file->getClientOriginalName());
+
+            $product->image = 'images/'.$time.'-'.$file->getClientOriginalName();
+
+            $product->sub_category_id = $request->subCategoryId;
+            if($request->description){
+                $product->description = $request->description;
+            } else {
+                $product->description = "";
+            }
+
+            $product->save();
 
                 return redirect()
                         ->back()
                         ->with('success', 'Tạo mới thành công');
 
-            } catch (Exception $e){
-                Log::error($e->getMessage());
-            }
+        } catch (Exception $e){
+            Log::error($e->getMessage());
+        }
     }
 
     public function update($productId, Request $request)
@@ -143,7 +141,7 @@ class ProductController extends Controller
                 }
                 $time = Carbon::now()->micro;
                 ImageUpload::make($file)
-                        ->resizeCanvas(500,500)
+                        ->resize(500,500)
                         ->save('images/'.$time.'-'.$file->getClientOriginalName());
 
                 $product->image = 'images/'.$time.'-'.$file->getClientOriginalName();

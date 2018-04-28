@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function show($productId)
     {
-        $product = Product::where('id', $productId)->get()->first();
+        $product = Product::find($productId);
+
         return view('productDetail', compact('product'));
     }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use Carbon\Carbon;
 use Validator;
+use App\Sub_category;
 
 class CategoryController extends Controller
 {
@@ -20,8 +21,8 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
-    	$categories = Category::paginate(10);
+    public function index(Category $category) {
+    	$categories = $category->sortable(['id', 'asc'])->paginate(10);
 
     	return view('admin.categories', compact('categories'));
     }
@@ -105,11 +106,16 @@ class CategoryController extends Controller
 
     public function destroy(Request $request, $categoryId) {
         try {
+            $subExist = Sub_category::where('category_id', $categoryId)->first();
+            if ($subExist) {
+                return back()->with('error', 'Hãy xóa nhóm phụ trước khi xóa nhóm chính.');;
+            } else {
                 $category = Category::find($categoryId);
                 $categoryName = $category->name;
                 $category->delete();
 
-                return back()->with('success', 'Xóa "' . $categoryName . '" thành công');
+                return back()->with('success', 'Xóa nhóm "' . $categoryName . '" thành công');
+            }
         } catch(Exception $e) {
             return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
         }  

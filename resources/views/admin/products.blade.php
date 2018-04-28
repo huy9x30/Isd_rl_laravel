@@ -27,11 +27,11 @@
 									<table class="table table-hover" style="table-layout: fixed; width: 100%">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th>Tên sản phẩm</th>
+												<th>@sortablelink('id', 'Mã số')</th>
+												<th>@sortablelink('name', 'Tên sản phẩm')</th>
 												<th>Hình ảnh</th>
-												<th>Nhóm phụ</th>
-												<th>Thời điểm cập nhật</th>
+												<th>@sortablelink('hasSubCategory.name', 'Nhóm phụ')</th>
+												<th>@sortablelink('updated_at', 'Thời điểm cập nhật')</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -44,7 +44,7 @@
 															{{ $product->name }}
 														</a>
 												</td>
-												<td><img style="max-height: 100px; max-width: auto" src="{{ asset($product->image) }}" alt="{{ $product->name }}"></td>
+												<td><img style="max-height: 100px; max-width: 100px" src="{{ asset($product->image) }}" alt="{{ $product->name }}"></td>
 												<td>{{ $product->hasSubCategory->name }}</td>
 												<td>
 													{{ Carbon\Carbon::parse($product->updated_at)->format('h:i A . d-m-Y') }}
@@ -78,7 +78,7 @@
 										</tbody>
 									</table>
 									<div style="text-align: center">
-										{{ $products->links() }}
+										{!! $products->appends(\Request::except('page'))->render() !!}
 									</div>
 								</div>
 							</div>

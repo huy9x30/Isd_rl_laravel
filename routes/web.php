@@ -31,9 +31,9 @@ Route::name('feedback.')->group(function () {
 // ADMIN
 Auth::routes();
 
-Route::name('admin.')->group(function () {
+Route::group(["prefix" => "/admin", "as" => "admin."],function () {
 
-	Route::get('/admin', 'Admin\AdminController@index')->name('index');
+	Route::get('/', 'Admin\AdminController@index')->name('index');
 
     Route::resources([
         'categories' => 'Admin\CategoryController',

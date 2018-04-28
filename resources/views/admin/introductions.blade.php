@@ -14,7 +14,7 @@
                     <!-- TABLE HOVER -->
 							<div class="panel">
 								<div class="panel-body">
-									<img src="{{ $introduction->image }}" alt="Hình ảnh giới thiệu">
+									<img src="{{ asset($introduction->image) }}" alt="Hình ảnh giới thiệu">
 									{!! $introduction->content !!}
 								</div>
 							</div>

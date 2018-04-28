@@ -26,9 +26,9 @@
 									<table class="table table-hover" style="table-layout: fixed; width: 100%">
 										<thead>
 											<tr>
-												<th>ID</th>
-												<th>Nhóm chính</th>
-												<th>Thời điểm cập nhật</th>
+												<th>@sortablelink('id', 'Mã số')</th>
+												<th>@sortablelink('name', 'Tên nhóm')</th>
+												<th>@sortablelink('updated_at', 'Thời điểm cập nhật')</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -54,8 +54,8 @@
 											  			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											  		</div>
 											  		<div class="modal-body" style="color: red;">
-											  			<p>Xóa nhóm chính sẽ xóa toàn bộ nhóm phụ và sản phẩm của chúng</p> <br>
-											      		<p>Bạn chắc chắn xóa nhóm "{{ $category->name }}"?</p>
+											  			<p>Xóa nhóm chính sẽ xóa toàn bộ nhóm phụ và sản phẩm của nhóm này</p> <br>
+											      		<p>Bạn THỰC SỰ CHẮC CHẮN muốn xóa nhóm "{{ $category->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
 											      		<form method="post" action="{{ route('admin.categories.destroy', ['id' => $category->id]) }}">
@@ -72,7 +72,7 @@
 										</tbody>
 									</table>
 									<div style="text-align: center">
-										{{ $categories->links() }}
+										{!! $categories->appends(\Request::except('page'))->render() !!}
 									</div>
 								</div>
 							</div>

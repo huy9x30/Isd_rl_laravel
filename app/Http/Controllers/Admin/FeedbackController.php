@@ -18,8 +18,8 @@ class FeedbackController extends Controller
         $this->middleware('auth');
     }
 
-    public function show() {
-    	$feedbacks = Feedback::paginate(10);
+    public function show(Feedback $feedback) {
+    	$feedbacks = $feedback->sortable(['id', 'asc'])->paginate(10);
 
     	return view('admin.feedbacks', compact('feedbacks'));
     }

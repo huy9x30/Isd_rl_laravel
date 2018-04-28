@@ -8,6 +8,7 @@ use App\Sub_category;
 use Validator;
 use Carbon\Carbon;
 use App\Category;
+use App\Product;
 
 class SubCategoryController extends Controller
 {
@@ -21,8 +22,8 @@ class SubCategoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
-        $subCategories = Sub_category::paginate(10);
+    public function index(Sub_category $subCategory) {
+        $subCategories = $subCategory->sortable(['id', 'asc'])->paginate(10);
 
         return view('admin.subCategories', compact('subCategories'));
     }
@@ -107,12 +108,16 @@ class SubCategoryController extends Controller
         }        
     }
 
-    public function destroy(Request $request, $categoryId) {
+    public function destroy(Request $request, $subCategoryId) {
         try {
-                $sub_category = Sub_category::find($categoryId);
+            $productExist = Product::where('sub_category_id', $subCategoryId);
+            if ($productExist) {
+                return back()->with('error', 'Hãy xóa sản phẩm trước khi xóa nhóm phụ.');;
+            } else {
+                $sub_category = Sub_category::find($subCategoryId);
                 $sub_categoryName = $sub_category->name;
                 $sub_category->delete();
-
+            }
                 return back()->with('success', 'Xóa "' . $sub_categoryName . '" thành công');
         } catch(Exception $e) {
             return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');

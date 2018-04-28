@@ -27,10 +27,10 @@
 									<table class="table table-hover" style="table-layout: fixed; width: 100%">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th>Nhóm phụ</th>
-												<th>Nhóm chính</th>
-												<th>Thời điểm cập nhật</th>
+												<th>@sortablelink('id', 'Mã số')</th>
+												<th>@sortablelink('name', 'Tên nhóm')</th>
+												<th>@sortablelink('hasCategory.name', 'Nhóm chính')</th>
+												<th>@sortablelink('updated_at', 'Thời điểm cập nhật')</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -59,8 +59,8 @@
 											  			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											  		</div>
 											  		<div class="modal-body" style="color: red;">
-											  			<p>Xóa nhóm phụ sẽ xóa toàn bộ sản phẩm của chúng</p> <br>
-											      		<p>Bạn chắc chắn xóa nhóm "{{ $subCategory->name }}"?</p>
+											  			<p>Xóa nhóm phụ sẽ xóa TOÀN BỘ sản phẩm của nhóm này</p> <br>
+											      		<p>Bạn THỰC SỰ CHẮC CHẮN muốn xóa nhóm "{{ $subCategory->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
 											      		<form method="post" action="{{ route('admin.subCategories.destroy', ['subCategoryid' => $subCategory->id]) }}">
@@ -77,7 +77,7 @@
 										</tbody>
 									</table>
 									<div style="text-align: center">
-										{{ $subCategories->links() }}
+										{!! $subCategories->appends(\Request::except('page'))->render() !!}
 									</div>
 								</div>
 							</div>

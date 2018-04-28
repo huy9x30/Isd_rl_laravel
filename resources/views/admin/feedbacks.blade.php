@@ -9,10 +9,10 @@
 									<table class="table table-hover" style="table-layout: fixed; width: 100%">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th>Tiêu đề</th>
+												<th>@sortablelink('id','Mã số')</th>
+												<th>@sortablelink('title','Tiêu đề')</th>
 												<th>Nội dung</th>
-												<th>Thời gian ghi nhận</th>
+												<th>@sortablelink('updated_at','Thời gian ghi nhận')</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -29,7 +29,7 @@
 										</tbody>
 									</table>
 									<div style="text-align: center">
-										{{ $feedbacks->links() }}
+										{!! $feedbacks->appends(\Request::except('page'))->render() !!}
 									</div>
 								</div>
 							</div>

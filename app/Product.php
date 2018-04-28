@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Product extends Model
 {
+	use Sortable;
     protected $table = 'products';
+    public $sortable = ['id',
+                        'name',
+                        'updated_at'];
 
     public function hasSubCategory()
     {
