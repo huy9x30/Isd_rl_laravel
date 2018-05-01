@@ -11,11 +11,12 @@
 			@endif
          	<form method="POST" action="{{ route('feedback.send') }}">
          		@CSRF
-				<label style="align-self: flex-start; margin: 10px 0px" for="titleForm">Nhan đề</label><br>
+				<label style="align-self: flex-start; margin: 10px 0px" for="titleForm">Tiêu đề *</label><br>
 				<input id="titleForm" type="text" name="title" value="{{ old('title') }}" style="width: 500px;"><br>
 				@if($errors->has('title'))
                             <p style="color:red">{{$errors->first('title')}}</p>
                 @endif
+				<label style="align-self: flex-start; margin: 10px 0px" for="feedbackForm">Nội dung *</label><br>
 				<textarea id="feedbackForm" name="content" cols="70" rows="5" style="border-color: gray; resize: none; width: 500px; margin: 10px 0px">{{ old('content') }}</textarea><br>
 				@if($errors->has('content'))
                             <p style="color:red">{{$errors->first('content')}}</p>
