@@ -17,4 +17,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\Sub_category', 'sub_category_id', 'id');
     }
+
+    public function each(){
+    	return $this->all();
+    }
 }

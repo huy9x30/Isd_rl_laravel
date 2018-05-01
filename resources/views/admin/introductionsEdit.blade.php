@@ -23,7 +23,8 @@
 										@method('PUT')
 										@csrf
 										<div class="form-group">
-											<label for="image">Hình ảnh</label>
+											<label for="image">Hình ảnh</label><br>
+											<img src="{{ asset($introduction->image) }}" alt="Hình ảnh giới thiệu">
 											<input type="file" name="image">
 										</div>
 										<div class="form-group">

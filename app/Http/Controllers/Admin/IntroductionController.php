@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Introduction;
 use Carbon\Carbon;
+use Validator;
 
 class IntroductionController extends Controller
 {
@@ -32,42 +33,12 @@ class IntroductionController extends Controller
 
     public function update(Request $request) {
          try{
-
-             $rule = [
-                'content' => 'required'
-            ];
-
-            $messages = [
-                'content.required' => 'Tên sản phẩm là trường bắt buộc'
-            ];
-
-            $validator = Validator::make($request->all(), $rule, $messages);
-            
-            if ($validator->fails()) {
+            if ($request->content == '<p>&nbsp;</p>') {
                 return redirect()
                         ->back()
-                        ->withErrors($validator)
-                        ->withInput();
+                        ->with('error', 'Nội dung là trường bắt buộc.');
             }
-                $product = Product::find($productId);
 
-            if ($request->image){
-                $file = $request->image;
-                $fileExtension = $file->getClientOriginalExtension();
-
-                if(!in_array($fileExtension, array('jpeg', 'jpg','png'))){
-                        return redirect()
-                                ->back()
-                                ->withInput()
-                                ->with('error', 'Chỉ hỗ trợ định dạng ảnh jpg, jpeg, png');
-                }
-                $time = Carbon::now()->micro;
-                ImageUpload::make($file)
-                        ->resizeCanvas(500,500)
-                        ->save('images/'.$time.'-'.$file->getClientOriginalName());
-
-                $product->image = 'images/'.$time.'-'.$file->getClientOriginalName();
-            }
             $introduction = Introduction::first();
             $introduction->content = $request->content;
 

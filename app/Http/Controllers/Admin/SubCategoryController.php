@@ -110,9 +110,9 @@ class SubCategoryController extends Controller
 
     public function destroy(Request $request, $subCategoryId) {
         try {
-            $productExist = Product::where('sub_category_id', $subCategoryId);
+            $productExist = Product::where('sub_category_id', $subCategoryId)->first();
             if ($productExist) {
-                return back()->with('error', 'Hãy xóa sản phẩm trước khi xóa nhóm phụ.');;
+                return back()->with('error', 'Hãy xóa tất cả sản phẩm của nhóm phụ trước khi xóa.');;
             } else {
                 $sub_category = Sub_category::find($subCategoryId);
                 $sub_categoryName = $sub_category->name;

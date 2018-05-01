@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Introduction;
+use App\Category;
+use App\Sub_category;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,8 +15,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showHome()
-    {
-        return view('index');
+    {   
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 
     public function showIntroduction()

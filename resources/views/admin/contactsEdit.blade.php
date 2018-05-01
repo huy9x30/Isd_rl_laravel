@@ -32,6 +32,13 @@
 										</div>
 										@if($contact->id == 1) 
 										<div class="form-group">
+											<label for="position">Chức vụ *</label>
+											<input id="position" class="form-control" name="position" value="{{ $contact->position }}"  type="text" required>
+											@if($errors->has('position'))
+					                            <p style="color:red">{{$errors->first('position')}}</p>
+					                        @endif
+										</div>
+										<div class="form-group">
 											<label for="personalPhone">Điện thoại riêng *</label>
 											<input id="personalPhone" class="form-control" name="personalPhone" value="{{ $contact->personalPhone }}"  type="text" required>
 											@if($errors->has('personalPhone'))

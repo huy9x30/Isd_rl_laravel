@@ -59,7 +59,6 @@
 											  			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											  		</div>
 											  		<div class="modal-body" style="color: red;">
-											  			<p>Xóa nhóm phụ sẽ xóa TOÀN BỘ sản phẩm của nhóm này</p> <br>
 											      		<p>Bạn THỰC SỰ CHẮC CHẮN muốn xóa nhóm "{{ $subCategory->name }}"?</p>
 											      	</div>
 											      	<div class="modal-footer">
