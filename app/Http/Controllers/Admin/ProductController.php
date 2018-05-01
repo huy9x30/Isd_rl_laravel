@@ -10,6 +10,9 @@ use Validator;
 use Carbon\Carbon;
 use Image as ImageUpload;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Exception\Handler;
+use Exception;
 
 class ProductController extends Controller
 {
@@ -101,7 +104,9 @@ class ProductController extends Controller
                         ->with('success', 'Tạo mới thành công');
 
         } catch (Exception $e){
+            Log::error('Tạo mới không thành công');
             Log::error($e->getMessage());
+            abort(500);
         }
     }
 
@@ -160,7 +165,9 @@ class ProductController extends Controller
                         ->with('success', 'Cập nhật thành công');
 
             } catch (Exception $e){
+                Log::error('Cập nhật không thành công');
                 Log::error($e->getMessage());
+                abort(500);
             }
     }
 
@@ -173,7 +180,9 @@ class ProductController extends Controller
 
                 return back()->with('success', 'Xóa sản phẩm "' . $productName . '" thành công');
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
+            Log::error('Xóa không thành công');
+            Log::error($e->getMessage());
+            abort(500);
         }  
     }
 }

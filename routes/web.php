@@ -23,8 +23,8 @@ Route::name('products.')->group(function () {
 });
 
 Route::name('feedback.')->group(function () {
-    Route::get('/feedback', 'FeedbackController@show')->name('show');
-    Route::post('/feedback', 'FeedbackController@send')->name('send');
+    Route::get('/feedback', 'FeedbackController@create')->name('show');
+    Route::post('/feedback', 'FeedbackController@store')->name('send');
 });
 
 

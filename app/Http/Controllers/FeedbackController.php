@@ -6,12 +6,18 @@ use App\Feedback;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Log\Logger;
 use Validator;
+use App\Exception\Handler;
+use Illuminate\Support\Facades\Log;
 
 class FeedbackController extends Controller
 {
-    public function send(Request $request)
+    public function create()
+    {
+        return view('feedback');
+    }
+
+    public function store(Request $request)
     {
 
         $rule = [
@@ -38,19 +44,16 @@ class FeedbackController extends Controller
             $feedbacks->title      = $request->title;
             $feedbacks->content    = $request->content;
             $feedbacks->created_at = Carbon::now();
-            $feedbacks->updated_at = Carbon::now();
+            $feedbacks->updated_a = Carbon::now();
 
             $feedbacks->save();
 
-            return redirect('feedback')->with('success', 'Phản hồi của bạn đã được ghi nhận.');
+            return back()->with('success', 'Phản hồi của bạn đã được ghi nhận.');
 
-        } catch (Exception $e) {            
-            abort(500, 'Internal Server Error has occurred. Contact admin for more info ');
+        } catch (Exception $e) {   
+            Log::error('Không lưu được feedback');   
+            Logg::error($e->getMessage());      
+            abort(500);
         }
-    }
-
-    public function show()
-    {
-        return view('feedback');
     }
 }

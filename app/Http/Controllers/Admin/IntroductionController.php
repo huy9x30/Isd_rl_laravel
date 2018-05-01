@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Introduction;
 use Carbon\Carbon;
 use Validator;
+use Illuminate\Support\Facades\Log;
+use App\Exception\Handler;
+use Exception;
 
 class IntroductionController extends Controller
 {
@@ -47,7 +50,9 @@ class IntroductionController extends Controller
 
             return redirect()->back()->with('success', 'Cập nhật thành công');
         } catch (Exception $e){
+            Log::error('Cập nhật không thành công');
             Log::error($e->getMessage());
+            abort(500);
         }
     }
 }

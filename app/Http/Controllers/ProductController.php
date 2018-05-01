@@ -15,10 +15,10 @@ class ProductController extends Controller
         return view('productDetail', compact('product'));
     }
 
-    public function showBySubCategory($sub_category_id)
+    public function showBySubCategory($subCategoryId)
     {
-        $products = Product::where('sub_category_id', $sub_category_id)->get();
-        $sub_category = Sub_category::where('id', $sub_category_id)->first()->name;
+        $products = Product::where('sub_category_id', $subCategoryId)->get();
+        $sub_category = Sub_category::where('id', $subCategoryId)->first()->name;
         
         return view('product', compact('products', 'sub_category'));
     }

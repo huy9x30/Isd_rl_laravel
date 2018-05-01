@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Feedback;
+use Illuminate\Support\Facades\Log;
+use App\Exception\Handler;
+use Exception;
 
 class FeedbackController extends Controller
 {

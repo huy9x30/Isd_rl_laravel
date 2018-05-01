@@ -8,6 +8,9 @@ use App\Category;
 use Carbon\Carbon;
 use Validator;
 use App\Sub_category;
+use Illuminate\Support\Facades\Log;
+use App\Exception\Handler;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -65,12 +68,14 @@ class CategoryController extends Controller
                 $category = new Category;
                 $category->name = strtolower($request->name);
                 $category->created_at = Carbon::now();
-                $category->updated_at = Carbon::now();
+                $category->updated_a = Carbon::now();
                 $category->save();
 
                 return back()->with('success', 'Tạo mới thành công');
             } catch (Exception $e){
-                return back()->with('error', 'Có lỗi xảy ra trong quá trình tạo mới. Vui lòng thử lại');
+                Log::error('Không lưu được category');
+                Log::error($e->getMessage());
+                abort(500);
             }
     }
 
@@ -100,7 +105,9 @@ class CategoryController extends Controller
                 
                 return back()->with('success', 'Cập nhật thành công.');
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');
+            Log::error('Cập nhật không thành công');
+            Log::error($e->getMessage());
+            abort(500);    
         }        
     }
 
@@ -117,7 +124,9 @@ class CategoryController extends Controller
                 return back()->with('success', 'Xóa nhóm "' . $categoryName . '" thành công');
             }
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình xóa. Vui lòng thử lại');
+            Log::error('Xóa không thành công');
+            Log::error($e->getMessage());
+            abort(500);
         }  
     }
 }

@@ -9,6 +9,9 @@ use Validator;
 use Carbon\Carbon;
 use App\Category;
 use App\Product;
+use Illuminate\Support\Facades\Log;
+use App\Exception\Handler;
+use Exception;
 
 class SubCategoryController extends Controller
 {
@@ -74,7 +77,9 @@ class SubCategoryController extends Controller
 
                 return back()->with('success', 'Tạo mới thành công');
             } catch (Exception $e){
-                return back()->with('error', 'Có lỗi xảy ra trong quá trình tạo mới. Vui lòng thử lại');
+                Log::error('Tạo mới không thành công');
+                Log::error($e->getMessage());
+                abort(500);
             }
     }
 
@@ -104,7 +109,9 @@ class SubCategoryController extends Controller
                 
                 return back()->with('success', 'Cập nhật thành công.');
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');
+            Log::error('Cập nhật không thành công');
+            Log::error($e->getMessage());
+            abort(500);
         }        
     }
 
@@ -120,7 +127,9 @@ class SubCategoryController extends Controller
             }
                 return back()->with('success', 'Xóa "' . $sub_categoryName . '" thành công');
         } catch(Exception $e) {
-            return back()->with('error', 'Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại');
+            Log::error('Xóa không thành công');
+            Log::error($e->getMessage());
+            abort(500);
         }  
     }
 }
